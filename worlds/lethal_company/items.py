@@ -53,7 +53,7 @@ class LCItem:
 
 
 def calculate_credits(world):
-    if not world.options.game_mode == 2:
+    if not world.options.game_mode.value == 2:
         return 0
 
     location_count = len(generate_locations(world.options.checks_per_moon.value, world.options.num_quotas.value,

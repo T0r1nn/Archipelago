@@ -1,1893 +1,2679 @@
 data = {
-  "moons": [
-    "41 Experimentation",
-    "220 Assurance",
-    "56 Vow",
-    "21 Offense",
-    "61 March",
-    "85 Rend",
-    "7 Dine",
-    "8 Titan"
-  ],
-  "store": [
-    "Walkie-talkie",
-    "Flashlight",
-    "Shovel",
-    "Lockpicker",
-    "Pro-flashlight",
-    "Stun grenade",
-    "Boombox",
-    "TZP-Inhalant",
-    "Zap gun",
-    "Jetpack",
-    "Extension ladder",
-    "Radar-booster",
-    "Spray paint"
-  ],
-  "scrap": [
-    {
-      "Large axle": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.12924071082391
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.038961038961039
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0329308452250274
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.132394366197183
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.120051085568327
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.00218818380743982
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.00209205020920502
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0374873353596758
-        }
-
-      ]
-    },
-    {
-      "V-type engine": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.145395799676898
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.051948051948052
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0439077936333699
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.112676056338028
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.102171136653895
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.00218818380743982
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.00209205020920502
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0405268490374873
-        }
-
-      ]
-    },
-    {
-      "Plastic fish": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.0193861066235864
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.012987012987013
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0351262349066959
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.0394366197183099
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.0357598978288633
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0175054704595186
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0167364016736402
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0162107396149949
-        }
-
-      ]
-    },
-    {
-      "Metal sheet": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.1421647819063
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0298701298701299
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.017563117453348
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.140845070422535
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.106002554278416
-        }
-
-      ]
-    },
-    {
-      "Laser pointer": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.00646203554119548
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0103896103896104
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.00878155872667398
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.0140845070422535
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.00383141762452107
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.00547045951859956
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.00523012552301255
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0101317122593718
-        }
-
-      ]
-    },
-    {
-      "Big bolt": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.12924071082391
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0766233766233766
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0340285400658617
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.125352112676056
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.113665389527458
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.00437636761487965
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.00418410041841004
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0476190476190476
-        }
-
-      ]
-    },
-    {
-      "Bottles": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.0306946688206785
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0753246753246753
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0688311688311688
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0636663007683864
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.026344676180022
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.0732394366197183
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.0855683269476373
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.050328227571116
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0481171548117155
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.033434650455927
-        }
-
-      ]
-    },
-    {
-      "Ring": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.00484652665589661
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0207877461706783
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0198744769874477
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.027355623100304
-        }
-
-      ]
-    },
-    {
-      "Steering wheel": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.0516962843295638
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0155844155844156
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.013172338090011
-        }
-
-      ]
-    },
-    {
-      "Cookie mold pan": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.00807754442649435
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0636363636363636
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0537870472008782
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.00845070422535211
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.016602809706258
-        }
-
-      ]
-    },
-    {
-      "Egg beater": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.0161550888529887
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0441558441558442
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0548847420417124
-        }
-
-      ]
-    },
-    {
-      "Jar of pickles": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.0161550888529887
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.025974025974026
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.021953896816685
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.00437636761487965
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.00418410041841004
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.00810536980749747
-        }
-
-      ]
-    },
-    {
-      "Dust pan": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.0516962843295638
-        }
-
-      ]
-    },
-    {
-      "Airhorn": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.00484652665589661
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.012987012987013
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0109769484083425
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.0211267605633803
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.0434227330779055
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0087527352297593
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0115062761506276
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0243161094224924
-        }
-
-      ]
-    },
-    {
-      "Clown horn": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.00484652665589661
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.012987012987013
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0109769484083425
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.0253521126760563
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.0549169859514687
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0087527352297593
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0115062761506276
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0162107396149949
-        }
-
-      ]
-    },
-    {
-      "Cash register": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.00484652665589661
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0038961038961039
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.00548847420417124
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.00383141762452107
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0175054704595186
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0125523012552301
-        }
-
-      ]
-    },
-    {
-      "Candy": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.00323101777059774
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.00383141762452107
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0164113785557987
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0167364016736402
-        }
-
-      ]
-    },
-    {
-      "Gold bar": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.00161550888529887
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.00510855683269476
-        }
-
-      ]
-    },
-    {
-      "Yield sign": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.00969305331179321
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0220779220779221
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.017563117453348
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.0169014084507042
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.0102171136653895
-        }
-
-      ]
-    },
-    {
-      "Homemade flashbang": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.0355411954765751
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0181818181818182
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0153677277716795
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.0154929577464789
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0104602510460251
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.00911854103343465
-        }
-
-      ]
-    },
-    {
-      "Gift": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.0274636510500808
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.025974025974026
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0230515916575192
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.0267605633802817
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.0306513409961686
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0207877461706783
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0219665271966527
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0172239108409321
-        }
-
-      ]
-    },
-    {
-      "Flask": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.0678513731825525
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0155844155844156
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0537870472008782
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.053639846743295
-        }
-
-      ]
-    },
-    {
-      "Archipelago Chest": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.024232633279483
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.025974025974026
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0197585071350165
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.0352112676056338
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.0510855683269476
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0492341356673961
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.047071129707113
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0557244174265451
-        }
-
-      ]
-    },
-    {
-      "AP Apparatus - Experimentation": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.0646203554119548
-        }
-
-      ]
-    },
-    {
-      "Toy cube": [
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0311688311688312
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0186608122941822
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.0183098591549296
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.0229885057471264
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0361050328227571
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0345188284518828
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0202634245187437
-        }
-
-      ]
-    },
-    {
-      "Remote": [
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0168831168831169
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0208562019758507
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.0211267605633803
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.0204342273307791
-        }
-
-      ]
-    },
-    {
-      "Toy robot": [
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.00779220779220779
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.00658616904500549
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.0126760563380282
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.00255427841634738
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.050328227571116
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0481171548117155
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0354609929078014
-        }
-
-      ]
-    },
-    {
-      "Magnifying glass": [
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0272727272727273
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0230515916575192
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.0197183098591549
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.00510855683269476
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0382932166301969
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0366108786610879
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0253292806484296
-        }
-
-      ]
-    },
-    {
-      "Stop sign": [
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0441558441558442
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0439077936333699
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.0380281690140845
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.037037037037037
-        }
-
-      ]
-    },
-    {
-      "Tea kettle": [
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0415584415584416
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0351262349066959
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.0338028169014084
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.0306513409961686
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0273522975929978
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0261506276150628
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0303951367781155
-        }
-
-      ]
-    },
-    {
-      "Mug": [
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0155844155844156
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.013172338090011
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0481400437636762
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0460251046025105
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0212765957446809
-        }
-
-      ]
-    },
-    {
-      "Red soda": [
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0155844155844156
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.013172338090011
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.00255427841634738
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0284463894967177
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0271966527196653
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.038500506585613
-        }
-
-      ]
-    },
-    {
-      "Old phone": [
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.00909090909090909
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.00768386388583974
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.0112676056338028
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0185995623632385
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0177824267782427
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.022289766970618
-        }
-
-      ]
-    },
-    {
-      "Hairdryer": [
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.00519480519480519
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0470459518599562
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0449790794979079
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0303951367781155
-        }
-
-      ]
-    },
-    {
-      "Brush": [
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0337662337662338
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0504939626783754
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0273522975929978
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0261506276150628
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0314083080040527
-        }
-
-      ]
-    },
-    {
-      "Bell": [
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0363636363636364
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0439077936333699
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0525164113785558
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0502092050209205
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0374873353596758
-        }
-
-      ]
-    },
-    {
-      "Whoopie cushion": [
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0142857142857143
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0537870472008782
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0188284518828452
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0263424518743668
-        }
-
-      ]
-    },
-    {
-      "Comedy": [
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.00649350649350649
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0579868708971554
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0303347280334728
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0435663627152989
-        }
-
-      ]
-    },
-    {
-      "Tragedy": [
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0038961038961039
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0273522975929978
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0669456066945607
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0466058763931104
-        }
-
-      ]
-    },
-    {
-      "AP Apparatus - Assurance": [
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.038961038961039
-        }
-
-      ]
-    },
-    {
-      "Rubber Ducky": [
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0230515916575192
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0175054704595186
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0167364016736402
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0243161094224924
-        }
-
-      ]
-    },
-    {
-      "Chemical jug": [
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0504939626783754
-        }
-
-      ]
-    },
-    {
-      "AP Apparatus - Vow": [
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0329308452250274
-        }
-
-      ]
-    },
-    {
-      "Teeth": [
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.0154929577464789
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0339168490153173
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0324267782426778
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0212765957446809
-        }
-
-      ]
-    },
-    {
-      "AP Apparatus - Offense": [
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.0422535211267606
-        }
-
-      ]
-    },
-    {
-      "AP Apparatus - March": [
-        {
-          "moon_name": "61 March",
-          "chance": 0.0383141762452107
-        }
-
-      ]
-    },
-    {
-      "Fancy lamp": [
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0536105032822757
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.051255230125523
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.027355623100304
-        }
-
-      ]
-    },
-    {
-      "Golden cup": [
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0262582056892779
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0251046025104603
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.027355623100304
-        }
-
-      ]
-    },
-    {
-      "Painting": [
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0612691466083151
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0523012552301255
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0344478216818642
-        }
-
-      ]
-    },
-    {
-      "Toothpaste": [
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0262582056892779
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0251046025104603
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0364741641337386
-        }
-
-      ]
-    },
-    {
-      "Pill bottle": [
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.00437636761487965
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.00418410041841004
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0151975683890578
-        }
-
-      ]
-    },
-    {
-      "Perfume bottle": [
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0306345733041575
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0292887029288703
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0141843971631206
-        }
-
-      ]
-    },
-    {
-      "Magic 7 ball": [
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.025164113785558
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0240585774058577
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0162107396149949
-        }
-
-      ]
-    },
-    {
-      "AP Apparatus - Rend": [
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0328227571115974
-        }
-
-      ]
-    },
-    {
-      "AP Apparatus - Dine": [
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0313807531380753
-        }
-
-      ]
-    },
-    {
-      "AP Apparatus - Titan": [
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0303951367781155
-        }
-
-      ]
-    }
-  ],
-  "bestiary": [
-    {
-      "Red Locust Bees": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.0434782608695652
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0599721059972106
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0887918486171761
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.100981767180926
-        }
-
-      ]
-    },
-    {
-      "Manticoil": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.146245059288538
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.139470013947001
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.145560407569141
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.193423597678917
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.1164095371669
-        }
-
-      ]
-    },
-    {
-      "Docile Locust Bees": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.102766798418972
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0808926080892608
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0975254730713246
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.0687237026647966
-        }
-
-      ]
-    },
-    {
-      "MouthDog": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.148221343873518
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.108786610878661
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.00582241630276565
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.193423597678917
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.0532959326788219
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.137546468401487
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.120980091883614
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.117647058823529
-        }
-
-      ]
-    },
-    {
-      "ForestGiant": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.00139470013947001
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.145560407569141
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.0174081237911025
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.0897615708274895
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.111524163568773
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0428790199081164
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0470588235294118
-        }
-
-      ]
-    },
-    {
-      "Earth Leviathan": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.110671936758893
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.132496513249651
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0262008733624454
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.0715667311411992
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.0224403927068724
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.033457249070632
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0872894333843798
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.00588235294117647
-        }
-
-      ]
-    },
-    {
-      "Centipede": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.100790513833992
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.129707112970711
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0887918486171761
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.0522243713733075
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.0532959326788219
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0576208178438662
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0796324655436447
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0794117647058823
-        }
-
-      ]
-    },
-    {
-      "Bunker Spider": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.114624505928854
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.096234309623431
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0582241630276565
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.0851063829787234
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.0897615708274895
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0799256505576208
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0980091883614089
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0867647058823529
-        }
-
-      ]
-    },
-    {
-      "Hoarding bug": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.0553359683794466
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.108786610878661
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.091703056768559
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.0309477756286267
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.0504908835904628
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0735068912710567
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0558823529411765
-        }
-
-      ]
-    },
-    {
-      "Flowerman": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.0256916996047431
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0195258019525802
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.116448326055313
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.00580270793036751
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.0785413744740533
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0947955390334572
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0382848392036753
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0911764705882353
-        }
-
-      ]
-    },
-    {
-      "Crawler": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.0316205533596838
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0334728033472803
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0131004366812227
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.106382978723404
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.103786816269285
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0735068912710567
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0794117647058823
-        }
-
-      ]
-    },
-    {
-      "Blob": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.0612648221343874
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0390516039051604
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0407569141193595
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.0618955512572534
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.0210378681626928
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0111524163568773
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0597243491577335
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0294117647058824
-        }
-
-      ]
-    },
-    {
-      "Girl": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.00197628458498024
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.00139470013947001
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0371747211895911
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0275650842266462
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0411764705882353
-        }
-
-      ]
-    },
-    {
-      "Puffer": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.0553359683794466
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0195258019525802
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0276564774381368
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.0135396518375242
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.0126227208976157
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0130111524163569
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0245022970903522
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0235294117647059
-        }
-
-      ]
-    },
-    {
-      "Nutcracker": [
-        {
-          "moon_name": "41 Experimentation",
-          "chance": 0.00197628458498024
-        },
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.00139470013947001
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.00386847195357834
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.00420757363253857
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.185873605947955
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0918836140888208
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.104411764705882
-        }
-
-      ]
-    },
-    {
-      "Baboon hawk": [
-        {
-          "moon_name": "220 Assurance",
-          "chance": 0.0278940027894003
-        },
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.0451237263464338
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.11605415860735
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.119214586255259
-        }
-
-      ]
-    },
-    {
-      "Spring": [
-        {
-          "moon_name": "56 Vow",
-          "chance": 0.00873362445414847
-        },
-        {
-          "moon_name": "21 Offense",
-          "chance": 0.0483558994197292
-        },
-        {
-          "moon_name": "61 March",
-          "chance": 0.0140252454417952
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0799256505576208
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.0811638591117917
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0867647058823529
-        }
-
-      ]
-    },
-    {
-      "Jester": [
-        {
-          "moon_name": "61 March",
-          "chance": 0.00140252454417952
-        },
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.111524163568773
-        },
-        {
-          "moon_name": "7 Dine",
-          "chance": 0.101071975497703
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.104411764705882
-        }
-
-      ]
-    },
-    {
-      "Masked": [
-        {
-          "moon_name": "85 Rend",
-          "chance": 0.0464684014869888
-        },
-        {
-          "moon_name": "8 Titan",
-          "chance": 0.0470588235294118
-        }
-      ]
-    }
-  ]
+    "moons": [
+        "41 Experimentation",
+        "220 Assurance",
+        "56 Vow",
+        "61 March",
+        "20 Adamance",
+        "85 Rend",
+        "7 Dine",
+        "21 Offense",
+        "8 Titan",
+        "68 Artifice",
+        "5 Embrion",
+    ],
+    "store": [
+        "Walkie-talkie",
+        "Flashlight",
+        "Shovel",
+        "Lockpicker",
+        "Pro-flashlight",
+        "Stun grenade",
+        "Boombox",
+        "TZP-Inhalant",
+        "Zap gun",
+        "Jetpack",
+        "Extension ladder",
+        "Radar-booster",
+        "Spray paint",
+    ],
+    "scrap": [
+        {
+            "Apparatus": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.996677740863787
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.99009900990099
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.99009900990099
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 1
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.946372239747634
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0163934426229508
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0228013029315961
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.986842105263158
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.813008130081301
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.238578680203046
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.986842105263158
+                }
+
+            ]
+        },
+        {
+            "Shotgun": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.00196078431372549
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.00140449438202247
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.00423131170662906
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0139616055846422
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.179856115107914
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0174216027874564
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.00383141762452107
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.105029585798817
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0726744186046512
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.0443548387096774
+                }
+
+            ]
+        },
+        {
+            "Knife": [
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0174520069808028
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0323741007194245
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.149825783972125
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0726744186046512
+                }
+
+            ]
+        },
+        {
+            "Hive": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.0431372549019608
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0603932584269663
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0878962536023055
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0987306064880113
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0296684118673647
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0225290697674419
+                }
+
+            ]
+        },
+        {
+            "Large axle": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.128205128205128
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0378310214375788
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0305810397553517
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.092326139088729
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0342075256556442
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.00205973223480947
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0138632162661738
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.122555410691004
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0374873353596758
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0252854812398042
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.102143757881463
+                }
+
+            ]
+        },
+        {
+            "V-type engine": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.144230769230769
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0504413619167718
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0316004077471967
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0863309352517986
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0456100342075257
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.00205973223480947
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0129390018484288
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.104302477183833
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0405268490374873
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0244698205546493
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.100882723833544
+                }
+
+            ]
+        },
+        {
+            "Plastic fish": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.0192307692307692
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0126103404791929
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0305810397553517
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0335731414868106
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0364880273660205
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0164778578784758
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.00462107208872458
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0365058670143416
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0162107396149949
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0130505709624796
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.0353089533417402
+                }
+
+            ]
+        },
+        {
+            "Metal sheet": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.141025641025641
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0290037831021438
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0163098878695209
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0995203836930456
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0182440136830103
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0847457627118644
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.126103404791929
+                }
+
+            ]
+        },
+        {
+            "Laser pointer": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.00641025641025641
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0100882723833544
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.00815494393476045
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.00359712230215827
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.00912200684150513
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.00514933058702369
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.00462107208872458
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0130378096479791
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0101317122593718
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.00815660685154975
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.00756620428751576
+                }
+
+            ]
+        },
+        {
+            "Big bolt": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.128205128205128
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0744010088272383
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0316004077471967
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.106714628297362
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0353477765108324
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.00411946446961895
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.00369685767097967
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.116036505867014
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0476190476190476
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0212071778140294
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.0832282471626734
+                }
+
+            ]
+        },
+        {
+            "Bottles": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.0304487179487179
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.073139974779319
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0668348045397226
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0591233435270133
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0244648318042813
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0803357314148681
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0501710376282782
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0273660205245154
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0473738414006179
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0277264325323475
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.059973924380704
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.033434650455927
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0130505709624796
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.0655737704918033
+                }
+
+            ]
+        },
+        {
+            "Ring": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.00480769230769231
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.01956745623069
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0240295748613678
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.027355623100304
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.034257748776509
+                }
+
+            ]
+        },
+        {
+            "Steering wheel": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.0512820512820513
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0239596469104666
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.017329255861366
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0136830102622577
+                }
+
+            ]
+        },
+        {
+            "Cookie mold pan": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.00801282051282051
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0617906683480454
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0499490316004077
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0287769784172662
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0456100342075257
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.00782268578878748
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.0655737704918033
+                }
+
+            ]
+        },
+        {
+            "Egg beater": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.016025641025641
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.042875157629256
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0570846075433231
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0570125427594071
+                }
+
+            ]
+        },
+        {
+            "Jar of pickles": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.016025641025641
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0252206809583859
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0275229357798165
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0228050171037628
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.00411946446961895
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0120147874306839
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.00810536980749747
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0269168026101142
+                }
+
+            ]
+        },
+        {
+            "Dust pan": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.0512820512820513
+                }
+
+            ]
+        },
+        {
+            "Airhorn": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.00480769230769231
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0126103404791929
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0101936799184506
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0407673860911271
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0148232611174458
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0082389289392379
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0147874306839187
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0195567144719687
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0243161094224924
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.031810766721044
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.0290037831021438
+                }
+
+            ]
+        },
+        {
+            "Clown horn": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.00480769230769231
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0126103404791929
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.035677879714577
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0515587529976019
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0102622576966933
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0082389289392379
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0157116451016636
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0234680573663625
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0162107396149949
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0252854812398042
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.0226986128625473
+                }
+
+            ]
+        },
+        {
+            "Cash register": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.00480769230769231
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.00378310214375788
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.00509683995922528
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.00359712230215827
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.00798175598631699
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0164778578784758
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0203327171903882
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0212071778140294
+                }
+
+            ]
+        },
+        {
+            "Candy": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.00320512820512821
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.00359712230215827
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0154479917610711
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0462107208872458
+                }
+
+            ]
+        },
+        {
+            "Gold bar": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.0016025641025641
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.00479616306954436
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0293637846655791
+                }
+
+            ]
+        },
+        {
+            "Yield sign": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.00961538461538462
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.021437578814628
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0163098878695209
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.00959232613908873
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0182440136830103
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0365058670143416
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.0151324085750315
+                }
+
+            ]
+        },
+        {
+            "Homemade flashbang": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.0352564102564103
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0176544766708701
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0142711518858308
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.023945267958951
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0184842883548983
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0169491525423729
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.00911854103343465
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0106035889070147
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.0151324085750315
+                }
+
+            ]
+        },
+        {
+            "Gift": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.0272435897435897
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0163934426229508
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0214067278287462
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0287769784172662
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0262257696693273
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.01956745623069
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0101663585951941
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0247718383311604
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0172239108409321
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0122349102773246
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.021437578814628
+                }
+
+            ]
+        },
+        {
+            "Flask": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.0673076923076923
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0151324085750315
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0499490316004077
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0503597122302158
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0342075256556442
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0521512385919166
+                }
+
+            ]
+        },
+        {
+            "Easter egg": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.00801282051282051
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0403530895334174
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0285423037716616
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0779376498800959
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.080957810718358
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.05870236869207
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0406654343807763
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0247718383311604
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0154975530179445
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.116015132408575
+                }
+
+            ]
+        },
+        {
+            "Archipelago Chest": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.0240384615384615
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0252206809583859
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.018348623853211
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0479616306954436
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0463439752832132
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0415896487985213
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0325945241199478
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0557244174265451
+                }
+
+            ]
+        },
+        {
+            "AP Apparatus - Experimentation": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.0641025641025641
+                }
+
+            ]
+        },
+        {
+            "Toy cube": [
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0390920554854981
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.017329255861366
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0215827338129496
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0193842645381984
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0339855818743563
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0304990757855823
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0234680573663625
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0202634245187437
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0163132137030995
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.0163934426229508
+                }
+
+            ]
+        },
+        {
+            "Remote": [
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0163934426229508
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0193679918450561
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0191846522781775
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0273660205245154
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0195567144719687
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.0353089533417402
+                }
+
+            ]
+        },
+        {
+            "Toy robot": [
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.00756620428751576
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.00611620795107034
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.00239808153477218
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0102622576966933
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0473738414006179
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0240295748613678
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0117340286831812
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0354609929078014
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0522022838499184
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.0542244640605296
+                }
+
+            ]
+        },
+        {
+            "Magnifying glass": [
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.021437578814628
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0214067278287462
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.00479616306954436
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.023945267958951
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0360453141091658
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0129390018484288
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0260756192959583
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0253292806484296
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.034257748776509
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.00756620428751576
+                }
+
+            ]
+        },
+        {
+            "Stop sign": [
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.042875157629256
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0407747196738022
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0347721822541966
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0456100342075257
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0352020860495437
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.0353089533417402
+                }
+
+            ]
+        },
+        {
+            "Tea kettle": [
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0403530895334174
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0407747196738022
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0287769784172662
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0364880273660205
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0257466529351184
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0397412199630314
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0312907431551499
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0303951367781155
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0244698205546493
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.0290037831021438
+                }
+
+            ]
+        },
+        {
+            "Mug": [
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0151324085750315
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.018348623853211
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0136830102622577
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0453141091658084
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0406654343807763
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0212765957446809
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.00815660685154975
+                }
+
+            ]
+        },
+        {
+            "Red soda": [
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0151324085750315
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0122324159021407
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.00239808153477218
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0136830102622577
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0267765190525232
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0462107208872458
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.038500506585613
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0163132137030995
+                }
+
+            ]
+        },
+        {
+            "Old phone": [
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.00882723833543506
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.00713557594291539
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.00456100342075257
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0175077239958805
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.011090573012939
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0104302477183833
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.022289766970618
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0203915171288744
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.0100882723833544
+                }
+
+            ]
+        },
+        {
+            "Hairdryer": [
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.00504413619167718
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0442842430484037
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0203327171903882
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0303951367781155
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0448613376835237
+                }
+
+            ]
+        },
+        {
+            "Brush": [
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0327868852459016
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0468909276248726
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0524515393386545
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0257466529351184
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0203327171903882
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0314083080040527
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0130505709624796
+                }
+
+            ]
+        },
+        {
+            "Bell": [
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0201765447667087
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0336391437308868
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0421892816419612
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0494335736354274
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.044362292051756
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0374873353596758
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0456769983686786
+                }
+
+            ]
+        },
+        {
+            "Whoopie cushion": [
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0138713745271122
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0499490316004077
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0228050171037628
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0166358595194085
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0263424518743668
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0350734094616639
+                }
+
+            ]
+        },
+        {
+            "Comedy": [
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.00630517023959647
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0545829042224511
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0434380776340111
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0130378096479791
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0435663627152989
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0415986949429038
+                }
+
+            ]
+        },
+        {
+            "Tragedy": [
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.00378310214375788
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0257466529351184
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0277264325323475
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0466058763931104
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0432300163132137
+                }
+
+            ]
+        },
+        {
+            "AP Apparatus - Assurance": [
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0378310214375788
+                }
+
+            ]
+        },
+        {
+            "Rubber Ducky": [
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0244648318042813
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0285062713797035
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0164778578784758
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0166358595194085
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0243161094224924
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0489396411092985
+                }
+
+            ]
+        },
+        {
+            "Chemical jug": [
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0468909276248726
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0467502850627138
+                }
+
+            ]
+        },
+        {
+            "AP Apparatus - Vow": [
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0305810397553517
+                }
+
+            ]
+        },
+        {
+            "AP Apparatus - March": [
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0359712230215827
+                }
+
+            ]
+        },
+        {
+            "Fancy lamp": [
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0504634397528321
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0499075785582255
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.027355623100304
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0432300163132137
+                }
+
+            ]
+        },
+        {
+            "Golden cup": [
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0247167868177137
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.033271719038817
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.027355623100304
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0448613376835237
+                }
+
+            ]
+        },
+        {
+            "Painting": [
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0576725025746653
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0323475046210721
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0344478216818642
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0505709624796085
+                }
+
+            ]
+        },
+        {
+            "Toothpaste": [
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0247167868177137
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0378927911275416
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0364741641337386
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.034257748776509
+                }
+
+            ]
+        },
+        {
+            "Pill bottle": [
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.00411946446961895
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0129390018484288
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0151975683890578
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0122349102773246
+                }
+
+            ]
+        },
+        {
+            "Perfume bottle": [
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0288362512873326
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0314232902033272
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0141843971631206
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0114192495921697
+                }
+
+            ]
+        },
+        {
+            "Teeth": [
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0319258496395469
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0406654343807763
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0143415906127771
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0212765957446809
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0220228384991843
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.00630517023959647
+                }
+
+            ]
+        },
+        {
+            "Magic 7 ball": [
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.023686920700309
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0277264325323475
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0162107396149949
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0244698205546493
+                }
+
+            ]
+        },
+        {
+            "AP Apparatus - Rend": [
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0308959835221421
+                }
+
+            ]
+        },
+        {
+            "AP Apparatus - Dine": [
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0277264325323475
+                }
+
+            ]
+        },
+        {
+            "AP Apparatus - Offense": [
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0391134289439374
+                }
+
+            ]
+        },
+        {
+            "AP Apparatus - Titan": [
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0303951367781155
+                }
+
+            ]
+        },
+    ],
+    "bestiary": [
+        {
+            "Circuit bee": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.0431372549019608
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0603932584269663
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0878962536023055
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0987306064880113
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0296684118673647
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0225290697674419
+                }
+
+            ]
+        },
+        {
+            "Manticoil": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.145098039215686
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.140449438202247
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.144092219020173
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.117066290550071
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.109947643979058
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.191570881226054
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0726744186046512
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.201612903225806
+                }
+
+            ]
+        },
+        {
+            "Roaming locust": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.101960784313725
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0646067415730337
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0965417867435159
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0550070521861777
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0523560209424084
+                }
+
+            ]
+        },
+        {
+            "Eyeless dog": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.147058823529412
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.109550561797753
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.00576368876080692
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0535966149506347
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0331588132635253
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.133093525179856
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.254355400696864
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.191570881226054
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.118343195266272
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0138081395348837
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.00604838709677419
+                }
+
+            ]
+        },
+        {
+            "Forest keeper": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.00196078431372549
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.00140449438202247
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.144092219020173
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0902679830747532
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0279232111692845
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.107913669064748
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.348432055749129
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0172413793103448
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0473372781065089
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0167151162790698
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.00604838709677419
+                }
+
+            ]
+        },
+        {
+            "Earth leviathan": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.109803921568627
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.133426966292135
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0259365994236311
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0225669957686883
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0104712041884817
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0323741007194245
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0104529616724739
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0708812260536398
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.00591715976331361
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.00436046511627907
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.0181451612903226
+                }
+
+            ]
+        },
+        {
+            "Old bird": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.00588235294117647
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.00349040139616056
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0452961672473868
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.00957854406130268
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0103550295857988
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.032703488372093
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.201612903225806
+                }
+
+            ]
+        },
+        {
+            "Snare flea": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.1
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.13061797752809
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0878962536023055
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0535966149506347
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0732984293193717
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0557553956834532
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0174216027874564
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0517241379310345
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0798816568047337
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0617732558139535
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.030241935483871
+                }
+
+            ]
+        },
+        {
+            "Bunker spider": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.113725490196078
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0969101123595506
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0576368876080692
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0902679830747532
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.108202443280977
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0773381294964029
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.024390243902439
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0842911877394636
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0872781065088757
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0726744186046512
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.0463709677419355
+                }
+
+            ]
+        },
+        {
+            "Hoarding bug": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.0549019607843137
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.109550561797753
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0907780979827089
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0507757404795487
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0994764397905759
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0278745644599303
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0306513409961686
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0562130177514793
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0690406976744186
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.173387096774194
+                }
+
+            ]
+        },
+        {
+            "Bracken": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.0254901960784314
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0196629213483146
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.115273775216138
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.078984485190409
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0698080279232112
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.091726618705036
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0278745644599303
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.00574712643678161
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0917159763313609
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0726744186046512
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.00604838709677419
+                }
+
+            ]
+        },
+        {
+            "Thumper": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.0313725490196078
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0337078651685393
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0129682997118156
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.104372355430183
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.116928446771379
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0104529616724739
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.10536398467433
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0798816568047337
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0675872093023256
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.0604838709677419
+                }
+
+            ]
+        },
+        {
+            "Hygrodere": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.0607843137254902
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0393258426966292
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0403458213256484
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0211565585331453
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0296684118673647
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0107913669064748
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0104529616724739
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0613026819923372
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.029585798816568
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0530523255813953
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.0846774193548387
+                }
+
+            ]
+        },
+        {
+            "Spore lizard": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.0549019607843137
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0196629213483146
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0273775216138329
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0126939351198872
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0575916230366492
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.012589928057554
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0104529616724739
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0134099616858238
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0236686390532544
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0654069767441861
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.0705645161290323
+                }
+
+            ]
+        },
+        {
+            "Nutcracker": [
+                {
+                    "moon_name": "41 Experimentation",
+                    "chance": 0.00196078431372549
+                },
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.00140449438202247
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.00423131170662906
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0139616055846422
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.179856115107914
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0174216027874564
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.00383141762452107
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.105029585798817
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0726744186046512
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.0443548387096774
+                }
+
+            ]
+        },
+        {
+            "Tulip snake": [
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0098314606741573
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0100864553314121
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0112834978843441
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0139616055846422
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.00363372093023256
+                }
+
+            ]
+        },
+        {
+            "Baboon hawk": [
+                {
+                    "moon_name": "220 Assurance",
+                    "chance": 0.0280898876404494
+                },
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.0446685878962536
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.119887165021157
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0907504363001745
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.114942528735632
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.00508720930232558
+                }
+
+            ]
+        },
+        {
+            "Coil-head": [
+                {
+                    "moon_name": "56 Vow",
+                    "chance": 0.00864553314121038
+                },
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.0141043723554302
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0174520069808028
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0773381294964029
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0209059233449477
+                },
+                {
+                    "moon_name": "21 Offense",
+                    "chance": 0.0478927203065134
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.0872781065088757
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.063953488372093
+                },
+                {
+                    "moon_name": "5 Embrion",
+                    "chance": 0.0504032258064516
+                }
+
+            ]
+        },
+        {
+            "Jester": [
+                {
+                    "moon_name": "61 March",
+                    "chance": 0.00141043723554302
+                },
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.012216404886562
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.107913669064748
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.0174216027874564
+                },
+                {
+                    "moon_name": "8 Titan",
+                    "chance": 0.105029585798817
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0668604651162791
+                }
+
+            ]
+        },
+        {
+            "Butler": [
+                {
+                    "moon_name": "20 Adamance",
+                    "chance": 0.0174520069808028
+                },
+                {
+                    "moon_name": "85 Rend",
+                    "chance": 0.0323741007194245
+                },
+                {
+                    "moon_name": "7 Dine",
+                    "chance": 0.149825783972125
+                },
+                {
+                    "moon_name": "68 Artifice",
+                    "chance": 0.0726744186046512
+                }
+
+            ]
+        },
+    ]
 }

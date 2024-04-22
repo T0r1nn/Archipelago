@@ -35,9 +35,9 @@ def create_regions(options: LCOptions, world):
                                                                count=world.required_credit_count)))
     else:
         company_building.connect(victory, rule=lambda state: (state.has_all(shop_items, player)
-                                                              and state.has_all(moons, player)
-                                                              and state.has("Progressive Flashlight", player, count=2)))
+                                                              and state.has_all(moons, player)))
 
+    print(world.initial_world)
     menu.connect(ship, rule=lambda state: True)
     ship.connect(starting_moon, rule=lambda state: True)
     ship.connect(terminal, rule=lambda state: state.has("Terminal", player) or options.randomize_terminal.value == 0)
@@ -78,22 +78,24 @@ def create_regions(options: LCOptions, world):
         for scrap_name in scrap_moons.keys():
             for moon in scrap_moons[scrap_name]:
                 if moon == "Common":
-                    for moon in moons:
-                        multiworld.get_region(moon, player).connect(multiworld.get_region(scrap_name, player),
-                                                                    rule=lambda state, s_name=scrap_name:
-                                                                    ((state.has("Stamina Bar", player)
-                                                                      or options.starting_stamina_bars.value > 0)
-                                                                     and (check_item_accessible(state, "Shovel",
-                                                                                                player, options)
-                                                                          or s_name != "Double-barrel")))
+                    for r_moon in moons:
+                        multiworld.get_region(r_moon, player).connect(multiworld.get_region(scrap_name, player),
+                                                                      rule=lambda state, s_name=scrap_name:
+                                                                      ((state.has("Stamina Bar", player)
+                                                                        or options.starting_stamina_bars.value > 0)
+                                                                       and (check_item_accessible(state, "Shovel",
+                                                                                                  player, options)
+                                                                            or (s_name != "Shotgun"
+                                                                                and s_name != "Knife"))))
                 else:
                     multiworld.get_region(moon, player).connect(multiworld.get_region(scrap_name, player),
-                                                            rule=lambda state, s_name=scrap_name:
-                                                            ((state.has("Stamina Bar", player)
-                                                              or options.starting_stamina_bars.value > 0)
-                                                             and (check_item_accessible(state, "Shovel",
-                                                                                        player, options)
-                                                                  or s_name != "Double-barrel")))
+                                                                rule=lambda state, s_name=scrap_name:
+                                                                ((state.has("Stamina Bar", player)
+                                                                  or options.starting_stamina_bars.value > 0)
+                                                                 and (check_item_accessible(state, "Shovel",
+                                                                                            player, options)
+                                                                      or (s_name != "Shotgun"
+                                                                          and s_name != "Knife"))))
 
     logs.append(Region("Sound Behind the Wall", player, multiworld))
     multiworld.regions.append(logs[-1])
