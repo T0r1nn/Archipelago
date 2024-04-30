@@ -37,6 +37,7 @@ class LethalCompanyWorld(World):
     required_client_version = (0, 4, 4)
     web = LethalCompanyWeb()
     initial_world: string
+    scrap_map = {}
     required_credit_count: int = 0
 
     def __init__(self, multiworld, player: int):
@@ -119,6 +120,9 @@ class LethalCompanyWorld(World):
 
         if self.options.game_mode == 2:
             slot_data["companycreditsgoal"] = self.required_credit_count
+
+        if self.options.modify_scrap_spawns.value == 1:
+            slot_data["moon_to_scrap_map"] = self.scrap_map
 
         return slot_data
 

@@ -247,6 +247,19 @@ class RandomizeScanner(Toggle):
     slot_name = "scanner"
 
 
+class MonsterSpawnChance(Range):
+    """
+    Monsters will be in logic if their spawn chance on an in-logic moon is greater than or equal to this percentage. A
+    value of less than 3% can significantly slow down your game.
+    """
+    display_name = "Minimum Monster Spawn Chance"
+    default = 5
+    range_start = 0
+    range_end = 20
+    slot = True
+    slot_name = "minmonsterchance"
+
+
 class WeightReducers(Range):
     """
     The total weight of strength training items. Every item received makes you 2% stronger.
@@ -260,11 +273,24 @@ class WeightReducers(Range):
 class Scrapsanity(Toggle):
     """
     Enables scrapsanity, where the first time each item is recovered from a moon is a check,
-    adds 50 checks to the randomizer
+    adds >50 checks to the randomizer
     """
     display_name = "Scrapsanity"
     slot = True
     slot_name = "scrapsanity"
+
+
+class ScrapSpawnChance(Range):
+    """
+    Scrap will be in logic if their spawn chance on an in-logic moon is greater than or equal to this percentage. A
+    value of less than 3% can significantly slow down your game.
+    """
+    display_name = "Minimum Scrap Spawn Chance"
+    default = 3
+    range_start = 0
+    range_end = 20
+    slot = True
+    slot_name = "minscrapchance"
 
 
 class ExcludeShotguns(Toggle):
@@ -428,9 +454,11 @@ class LCOptions(PerGameCommonOptions):
     starting_inventory_slots: StartingInventorySlots
     starting_stamina_bars: StartingStaminaBars
     randomize_scanner: RandomizeScanner
+    min_monster_chance: MonsterSpawnChance
     randomize_terminal: RandomizeTerminal
     randomize_company_building: RandomizeCompanyBuilding
     scrapsanity: Scrapsanity
+    min_scrap_chance: ScrapSpawnChance
     exclude_shotgun: ExcludeShotguns
     exclude_hive: ExcludeHive
     modify_scrap_spawns: ModifyScrapSpawns

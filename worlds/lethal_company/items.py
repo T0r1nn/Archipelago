@@ -79,6 +79,10 @@ moons = []
 shop_items = []
 
 items = [
+    LCItem("LoudHorn", classification=ItemClassification.useful),
+    LCItem("SignalTranslator", classification=ItemClassification.useful),
+    LCItem("Teleporter", classification=ItemClassification.useful),
+    LCItem("InverseTeleporter", classification=ItemClassification.useful),
     LCItem("Company Building", 1, "randomize_company_building", classification=ItemClassification.progression),
     LCItem("Terminal", 1, "randomize_terminal", classification=ItemClassification.progression),
     LCItem("Inventory Slot", 2, lambda w: 4 - w.options.starting_inventory_slots.value,

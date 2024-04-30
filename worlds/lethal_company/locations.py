@@ -39,6 +39,10 @@ for item in data["scrap"]:
     key = [key for key in item.keys()][0]
     scrap_names.append(key)
 
+for moon in moons:
+    if not f"AP Apparatus - {moon}" in scrap_names:
+        scrap_names.append(f"AP Apparatus - {moon}")
+
 
 def generate_bestiary_moons(chance: float) -> Dict[str, List[str]]:
     bestiary_moons = {
@@ -79,15 +83,39 @@ def generate_scrap_moons_alt(world: 'LethalCompanyWorld') -> Dict[str, List[str]
 
     }
 
-    items_per_bin = math.floor(len(scrap_names) / len(moons))
-    world.multiworld.random.shuffle(scrap_names)
+    normal = generate_scrap_moons(chance=world.options.min_scrap_chance.value/100)
 
-    for i in range(len(scrap_names)):
+    scrap = [name for name in scrap_names]
+
+    for name in scrap:
+        if "AP Apparatus" in name:
+            scrap.remove(name)
+        elif "Archipelago Chest" in name:
+            scrap.remove(name)
+        elif "Apparatus" in name or "Shotgun" in name or "Knife" in name or "Hive" in name:
+            scrap.remove(name)
+
+    items_per_bin = math.floor(len(scrap) / len(moons))
+    world.multiworld.random.shuffle(scrap)
+
+    for i in range(len(scrap)):
         bin_num = math.floor(i/items_per_bin)
         if bin_num < len(moons):
-            scrap_moons[scrap_names[i]] = [moons[bin_num]]
+            scrap_moons[scrap[i]] = [moons[bin_num]]
         else:
-            scrap_moons[scrap_names[i]] = ["Common"]
+            scrap_moons[scrap[i]] = ["Common"]
+
+    scrap_moons["Archipelago Chest"] = []
+    scrap_moons["Apparatus"] = normal["Apparatus"]
+    scrap_moons["Shotgun"] = normal["Shotgun"]
+    scrap_moons["Knife"] = normal["Knife"]
+    scrap_moons["Hive"] = normal["Hive"]
+
+    for moon in moons:
+        scrap_moons[f"AP Apparatus - {moon}"] = [moon]
+        scrap_moons["Archipelago Chest"].append(moon)
+
+    world.scrap_map = scrap_moons
 
     return scrap_moons
 

@@ -54,8 +54,8 @@ def create_regions(options: LCOptions, world):
                                                          and (state.has("Stamina Bar", player)
                                                               or options.starting_stamina_bars.value >= 1)))
 
-    bestiary_moons = generate_bestiary_moons(0.05)
-    scrap_moons = generate_scrap_moons(0.05) if options.modify_scrap_spawns.value == 0 \
+    bestiary_moons = generate_bestiary_moons(options.min_monster_chance.value/100.0)
+    scrap_moons = generate_scrap_moons(options.min_scrap_chance.value/100.0) if options.modify_scrap_spawns.value == 0 \
         else generate_scrap_moons_alt(world)
 
     print(bestiary_moons)
