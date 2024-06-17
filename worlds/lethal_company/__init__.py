@@ -1,13 +1,14 @@
 import string
 
-from .items import LethalCompanyItem, item_table, items, filler_items, classification_table, moons, calculate_credits
-from .locations import LethalCompanyLocation, generate_locations, max_locations
+from .items import LethalCompanyItem, item_table, generate_items, calculate_credits, get_default_item_map
+from .locations import LethalCompanyLocation, generate_locations, locations, get_default_location_map
 from .rules import set_rules
 from BaseClasses import Item, ItemClassification, Tutorial, MultiWorld, Region
 from .options import LCOptions
 from worlds.AutoWorld import World, WebWorld
 from typing import List
 from .regions import create_regions
+from .logic_generator import GetImportedData
 
 
 class LethalCompanyWeb(WebWorld):
@@ -30,8 +31,8 @@ class LethalCompanyWorld(World):
     options: LCOptions
     topology_present = False
 
-    item_name_to_id = item_table
-    location_name_to_id = max_locations
+    item_name_to_id = get_default_item_map()
+    location_name_to_id = get_default_location_map()
 
     data_version = 7
     required_client_version = (0, 4, 4)
@@ -39,16 +40,32 @@ class LethalCompanyWorld(World):
     initial_world: string
     scrap_map = {}
     required_credit_count: int = 0
+    imported_data = {}
+    moons = []
+    generated_items = []
+    slot_item_data = None
+    log_names = []
+    bestiary_names = []
+    scrap_names = []
 
     def __init__(self, multiworld, player: int):
         super().__init__(multiworld, player)
 
     def generate_early(self) -> None:
-        environment_pool = moons.copy()
+
+        self.imported_data = GetImportedData(self.options.custom_content)
+
+        self.generated_items, self.slot_item_data = generate_items(self.imported_data)
+
+        generate_locations(self)
+
+        self.moons = self.slot_item_data.moons
+
+        environment_pool = self.moons.copy()
 
         unlock = None
         starting_moon_option = self.options.starting_moon.value
-        for moon in moons:
+        for moon in self.moons:
             if str(moon).lower().find(starting_moon_option.lower()) >= 0:
                 unlock = moon
         if unlock is None:
@@ -67,37 +84,35 @@ class LethalCompanyWorld(World):
         self.initial_world = unlock[0]
 
     def create_items(self) -> None:
+        LethalCompanyWorld.item_name_to_id = item_table.copy()
+        LethalCompanyWorld.location_name_to_id = locations.copy()
+
         # Generate item pool
         itempool: List = []
 
-        for item in items:
+        for item in self.generated_items:
             names = item.create_item(self)
             for name in names:
                 if not name == self.initial_world:
                     itempool.append(name)
 
-        total_locations = len(
-            generate_locations(
-                checks_per_moon=self.options.checks_per_moon.value,
-                num_quota=self.options.num_quotas.value,
-                scrapsanity=self.options.scrapsanity.value
-            )
-        )
+        total_locations = len(generate_locations(self))
 
         # Fill remaining items with randomly generated junk
         while len(itempool) < total_locations:
             itempool.append(self.get_filler_item_name())
 
         # Convert itempool into real items
-        itempool = list(map(lambda name: self.create_item(name), itempool))
+        itempool = list(map(lambda item_name: self.create_item(item_name), itempool))
         self.multiworld.itempool += itempool
+        print(LethalCompanyWorld.item_name_to_id)
 
     def set_rules(self) -> None:
         set_rules(self)
 
     def get_filler_item_name(self) -> str:
-        weights = [data for data in filler_items.values()]
-        filler = self.multiworld.random.choices([filler for filler in filler_items.keys()], weights,
+        weights = [data for data in self.slot_item_data.filler_items.values()]
+        filler = self.multiworld.random.choices([filler for filler in self.slot_item_data.filler_items.keys()], weights,
                                                 k=1)[0]
         return filler
 
@@ -115,7 +130,6 @@ class LethalCompanyWorld(World):
         for option in dir(self.options):
             if hasattr(getattr(self.options, option), "slot"):
                 if getattr(self.options, option).slot:
-                    print(option, getattr(self.options, option).slot_name, getattr(self.options, option).value)
                     slot_data[getattr(self.options, option).slot_name] = getattr(self.options, option).value
 
         if self.options.game_mode == 2:
@@ -128,7 +142,7 @@ class LethalCompanyWorld(World):
 
     def create_item(self, name: str) -> Item:
         item_id = item_table[name]
-        classification = classification_table.get(name)
+        classification = self.slot_item_data.classification_table.get(name)
         item = LethalCompanyItem(name, classification, item_id, self.player)
         return item
 

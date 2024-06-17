@@ -47,7 +47,8 @@ class MoneyPerQuotaCheck(Range):
 
 class NumQuotas(Range):
     """
-    Will not give checks for quotas past this number. For example, if maximum quotas is 10, the 11th quota check will not count as a check
+    Will not give checks for quotas past this number. For example, if maximum quotas is 10, the 11th quota check will
+    not count as a check
     """
     display_name = "Num Quotas"
     range_start = 10
@@ -81,7 +82,8 @@ class HauntTrapWeight(Range):
 
 class MoneyWeight(Range):
     """
-    The weight of money drops in the pool. Each money drop can give anywhere from 100-1000 scrap, though it doesn't count towards the quota
+    The weight of money drops in the pool. Each money drop can give anywhere from 100-1000 scrap,
+    though it doesn't count towards the quota
     """
     display_name = "Money Weight"
     range_start = 0
@@ -440,13 +442,14 @@ class LogicDifficulty(Choice):
     option_Min_Logic_MP = 4
     default = 1
 
+
 # Will contain a diff from the original imported and the new one, find a way to interpret that.
 class CustomContent(FreeText):
     """
     Contains any custom content the player wants to use. See the guide on the github page to use this option
     """
     display_name = "Custom Content"
-    default = ""
+    default = "false"
     slot = False
 
 
