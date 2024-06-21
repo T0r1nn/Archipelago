@@ -9,6 +9,7 @@ from worlds.AutoWorld import World, WebWorld
 from typing import List
 from .regions import create_regions
 from .logic_generator import GetImportedData
+from .imported import data
 
 
 class LethalCompanyWeb(WebWorld):
@@ -50,12 +51,11 @@ class LethalCompanyWorld(World):
 
     def __init__(self, multiworld, player: int):
         super().__init__(multiworld, player)
+        self.generated_items, self.slot_item_data = generate_items(data)
 
     def generate_early(self) -> None:
 
         self.imported_data = GetImportedData(self.options.custom_content)
-
-        self.generated_items, self.slot_item_data = generate_items(self.imported_data)
 
         generate_locations(self)
 
