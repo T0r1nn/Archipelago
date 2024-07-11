@@ -66,10 +66,10 @@ def set_rules(lc_world: 'LethalCompanyWorld') -> None:
             if lc_world.scrap_names[scrap_index] == "Hive" and options.exclude_hive.value == 1:
                 multiworld.get_location("Scrap - Hive", player).progress_type = LocationProgressType.EXCLUDED
 
-            if lc_world.scrap_names[scrap_index] == "Shotgun" and options.exclude_shotgun.value == 1:
+            if lc_world.scrap_names[scrap_index] == "Shotgun" and options.exclude_killing.value == 1:
                 multiworld.get_location("Scrap - Shotgun", player).progress_type = LocationProgressType.EXCLUDED
 
-            if lc_world.scrap_names[scrap_index] == "Knife" and options.exclude_shotgun.value == 1:
+            if lc_world.scrap_names[scrap_index] == "Knife" and options.exclude_killing.value == 1:
                 multiworld.get_location("Scrap - Knife", player).progress_type = LocationProgressType.EXCLUDED
 
             if lc_world.scrap_names[scrap_index] == "Gold bar":

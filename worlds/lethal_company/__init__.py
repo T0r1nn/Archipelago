@@ -10,9 +10,58 @@ from typing import List
 from .regions import create_regions
 from .logic_generator import GetImportedData
 from .imported import data
+from Options import OptionGroup
+from . import options
+from .custom_content import custom_content
 
 
 class LethalCompanyWeb(WebWorld):
+    option_groups = [
+        OptionGroup("Goal", [
+            options.Goal,
+            options.CollectathonScrapGoal,
+            options.CreditReplacement,
+            options.RequiredCredits
+        ]),
+        OptionGroup("Checks", [
+            options.ChecksPerMoon,
+            options.NumQuotas,
+            options.MoneyPerQuotaCheck,
+            options.Scrapsanity,
+            options.RandomizeCompanyBuilding,
+            options.RandomizeScanner,
+            options.RandomizeTerminal
+        ], True),
+        OptionGroup("Starting Info", [
+            options.StartingMoon,
+            options.StartingStaminaBars,
+            options.StartingInventorySlots
+        ], True),
+        OptionGroup("Logic Config", [
+            options.MoonCheckGrade,
+            options.SplitMoonGrades,
+            options.EasyMoonCheckGrade,
+            options.MedMoonCheckGrade,
+            options.HighMoonCheckGrade,
+            options.ScrapSpawnChance,
+            options.MonsterSpawnChance,
+            options.MinMoneyCheck,
+            options.MaxMoneyCheck,
+            options.ModifyScrapSpawns,
+            options.ExcludeShotguns,
+            options.ExcludeHive
+        ], True),
+        OptionGroup("Weights", [
+            options.MoneyWeight,
+            options.BirthdayGiftWeight,
+            options.WeightReducers,
+            options.ScrapDupeWeight,
+            options.DayIncreaseWeight,
+            options.DayDecreaseWeight,
+            options.BrackenTrapWeight,
+            options.HauntTrapWeight
+        ], True)
+    ]
     tutorials = [Tutorial(
         "Multiworld Setup Guide",
         "A guide to setting up the Lethal Company integration for Archipelago multiworld games.",
@@ -23,11 +72,14 @@ class LethalCompanyWeb(WebWorld):
     )]
 
 
+name = custom_content["name"]
+
+
 class LethalCompanyWorld(World):
     """
     Placeholder description
     """
-    game = "Lethal Company"
+    game = f"Lethal Company{name}"
     options_dataclass = LCOptions
     options: LCOptions
     topology_present = False
@@ -55,7 +107,7 @@ class LethalCompanyWorld(World):
 
     def generate_early(self) -> None:
 
-        self.imported_data = GetImportedData(self.options.custom_content)
+        self.imported_data = GetImportedData()
 
         generate_locations(self)
 

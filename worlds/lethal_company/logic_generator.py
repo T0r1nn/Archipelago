@@ -1,28 +1,21 @@
-from .options import CustomContent
 from .imported import data
-from json import loads, JSONDecodeError
+from .custom_content import custom_content
 
 
-def GetImportedData(custom_content_diff: CustomContent):
+def GetImportedData():
     data_copy = Copy(data)
 
-    try:
-        json_diff_string = custom_content_diff.value
-        json_diff = loads(json_diff_string)
-    except JSONDecodeError:
+    if type(custom_content) is not dict:
         return data_copy
 
-    if type(json_diff) is not dict:
-        return data_copy
-
-    if "moons" in json_diff.keys():
-        [data_copy["moons"].append(moon) for moon in json_diff.get("moons")]
-    if "store" in json_diff.keys():
-        [data_copy.get("store").append(shop_item) for shop_item in json_diff.get("store")]
-    if "scrap" in json_diff.keys():
-        data_copy["scrap"] = json_diff.get("scrap")
-    if "bestiary" in json_diff.keys():
-        data_copy["bestiary"] = json_diff.get("bestiary")
+    if "moons" in custom_content.keys():
+        [data_copy["moons"].append(moon) for moon in custom_content.get("moons")]
+    if "store" in custom_content.keys():
+        [data_copy.get("store").append(shop_item) for shop_item in custom_content.get("store")]
+    if "scrap" in custom_content.keys():
+        data_copy["scrap"] = custom_content.get("scrap")
+    if "bestiary" in custom_content.keys():
+        data_copy["bestiary"] = custom_content.get("bestiary")
 
     return data_copy
 
