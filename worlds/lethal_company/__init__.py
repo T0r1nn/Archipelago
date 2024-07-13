@@ -136,9 +136,6 @@ class LethalCompanyWorld(World):
         self.initial_world = unlock[0]
 
     def create_items(self) -> None:
-        LethalCompanyWorld.item_name_to_id = item_table.copy()
-        LethalCompanyWorld.location_name_to_id = locations.copy()
-
         # Generate item pool
         itempool: List = []
 
@@ -157,7 +154,6 @@ class LethalCompanyWorld(World):
         # Convert itempool into real items
         itempool = list(map(lambda item_name: self.create_item(item_name), itempool))
         self.multiworld.itempool += itempool
-        print(LethalCompanyWorld.item_name_to_id)
 
     def set_rules(self) -> None:
         set_rules(self)
