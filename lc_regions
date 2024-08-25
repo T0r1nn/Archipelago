@@ -1,0 +1,454 @@
+@startuml
+hide circle
+hide empty members
+skinparam linetype ortho
+class "Menu"
+"Menu" --> "Ship"
+class "Ship"
+"Ship" --> "Assurance"
+"Ship" --> "Terminal"
+class "Assurance"
+"Assurance" : {field} Assurance check 1
+"Assurance" : {field} Assurance check 2
+"Assurance" : {field} Assurance check 3
+"Assurance" --> "Snare Flea"
+"Assurance" --> "Bunker Spider"
+"Assurance" --> "Hoarding Bug"
+"Assurance" --> "Bracken"
+"Assurance" --> "Thumper"
+"Assurance" --> "Hygrodere"
+"Assurance" --> "Spore Lizard"
+"Assurance" --> "Earth Leviathan"
+"Assurance" --> "Baboon Hawk"
+"Assurance" --> "Circuit Bee"
+"Assurance" --> "Manticoil"
+"Assurance" --> "Roaming Locust"
+"Assurance" --> "Big bolt"
+"Assurance" --> "Bottles"
+"Assurance" --> "Cookie mold pan"
+"Assurance" --> "Red soda"
+"Assurance" --> "Stop sign"
+"Assurance" --> "Apparatice"
+"Assurance" --> "Bee Hive"
+"Assurance" --> "Large axle"
+"Assurance" --> "Laser pointer"
+"Assurance" --> "Magic 7 ball"
+"Assurance" --> "Plastic fish"
+"Assurance" --> "Tea kettle"
+"Assurance" --> "Teeth"
+"Assurance" --> "Toothpaste"
+"Assurance" --> "Smells Here!"
+class "Terminal"
+"Terminal" --> "Experimentation"
+"Terminal" --> "Vow"
+"Terminal" --> "Offense"
+"Terminal" --> "March"
+"Terminal" --> "Rend"
+"Terminal" --> "Dine"
+"Terminal" --> "Titan"
+"Terminal" --> "Company Building"
+class "Snare Flea"
+"Snare Flea" : {field} Bestiary Entry - Snare Flea
+class "Bunker Spider"
+"Bunker Spider" : {field} Bestiary Entry - Bunker Spider
+class "Hoarding Bug"
+"Hoarding Bug" : {field} Bestiary Entry - Hoarding Bug
+class "Bracken"
+"Bracken" : {field} Bestiary Entry - Bracken
+class "Thumper"
+"Thumper" : {field} Bestiary Entry - Thumper
+class "Hygrodere"
+"Hygrodere" : {field} Bestiary Entry - Hygrodere
+class "Spore Lizard"
+"Spore Lizard" : {field} Bestiary Entry - Spore Lizard
+class "Earth Leviathan"
+"Earth Leviathan" : {field} Bestiary Entry - Earth Leviathan
+class "Baboon Hawk"
+"Baboon Hawk" : {field} Bestiary Entry - Baboon Hawk
+class "Circuit Bee"
+"Circuit Bee" : {field} Bestiary Entry - Circuit Bee
+class "Manticoil"
+"Manticoil" : {field} Bestiary Entry - Manticoil
+class "Roaming Locust"
+"Roaming Locust" : {field} Bestiary Entry - Roaming Locust
+class "Big bolt"
+"Big bolt" : {field} Scrap - Big bolt
+class "Bottles"
+"Bottles" : {field} Scrap - Bottles
+class "Cookie mold pan"
+"Cookie mold pan" : {field} Scrap - Cookie mold pan
+class "Red soda"
+"Red soda" : {field} Scrap - Red soda
+class "Stop sign"
+"Stop sign" : {field} Scrap - Stop sign
+class "Apparatice"
+"Apparatice" : {field} Scrap - Apparatice
+class "Bee Hive"
+"Bee Hive" : {field} Scrap - Bee Hive
+class "Large axle"
+"Large axle" : {field} Scrap - Large axle
+class "Laser pointer"
+"Laser pointer" : {field} Scrap - Laser pointer
+class "Magic 7 ball"
+"Magic 7 ball" : {field} Scrap - Magic 7 ball
+class "Plastic fish"
+"Plastic fish" : {field} Scrap - Plastic fish
+class "Tea kettle"
+"Tea kettle" : {field} Scrap - Tea kettle
+class "Teeth"
+"Teeth" : {field} Scrap - Teeth
+class "Toothpaste"
+"Toothpaste" : {field} Scrap - Toothpaste
+class "Smells Here!"
+"Smells Here!" : {field} Log - Smells Here!
+class "Experimentation"
+"Experimentation" : {field} Experimentation check 1
+"Experimentation" : {field} Experimentation check 2
+"Experimentation" : {field} Experimentation check 3
+"Experimentation" --> "Snare Flea"
+"Experimentation" --> "Bunker Spider"
+"Experimentation" --> "Hoarding Bug"
+"Experimentation" --> "Bracken"
+"Experimentation" --> "Thumper"
+"Experimentation" --> "Hygrodere"
+"Experimentation" --> "Spore Lizard"
+"Experimentation" --> "Earth Leviathan"
+"Experimentation" --> "Circuit Bee"
+"Experimentation" --> "Manticoil"
+"Experimentation" --> "Roaming Locust"
+"Experimentation" --> "V-type engine"
+"Experimentation" --> "DIY-Flashbang"
+"Experimentation" --> "Dust pan"
+"Experimentation" --> "Steering wheel"
+"Experimentation" --> "Yield sign"
+"Experimentation" --> "Apparatice"
+"Experimentation" --> "Bee Hive"
+"Experimentation" --> "Large axle"
+"Experimentation" --> "Laser pointer"
+"Experimentation" --> "Magic 7 ball"
+"Experimentation" --> "Plastic fish"
+"Experimentation" --> "Tea kettle"
+"Experimentation" --> "Teeth"
+"Experimentation" --> "Toothpaste"
+"Experimentation" --> "Swing of Things"
+"Experimentation" --> "Shady"
+class "Vow"
+"Vow" : {field} Vow check 1
+"Vow" : {field} Vow check 2
+"Vow" : {field} Vow check 3
+"Vow" --> "Snare Flea"
+"Vow" --> "Bunker Spider"
+"Vow" --> "Hoarding Bug"
+"Vow" --> "Bracken"
+"Vow" --> "Thumper"
+"Vow" --> "Hygrodere"
+"Vow" --> "Spore Lizard"
+"Vow" --> "Coil-Head"
+"Vow" --> "Forest Keeper"
+"Vow" --> "Earth Leviathan"
+"Vow" --> "Baboon Hawk"
+"Vow" --> "Circuit Bee"
+"Vow" --> "Manticoil"
+"Vow" --> "Roaming Locust"
+"Vow" --> "Egg beater"
+"Vow" --> "Chemical jug"
+"Vow" --> "Flask"
+"Vow" --> "Hair brush"
+"Vow" --> "Rubber Ducky"
+"Vow" --> "Apparatice"
+"Vow" --> "Bee Hive"
+"Vow" --> "Large axle"
+"Vow" --> "Laser pointer"
+"Vow" --> "Magic 7 ball"
+"Vow" --> "Plastic fish"
+"Vow" --> "Tea kettle"
+"Vow" --> "Teeth"
+"Vow" --> "Toothpaste"
+"Vow" --> "Screams"
+class "Offense"
+"Offense" : {field} Offense check 1
+"Offense" : {field} Offense check 2
+"Offense" : {field} Offense check 3
+"Offense" --> "Snare Flea"
+"Offense" --> "Bunker Spider"
+"Offense" --> "Hoarding Bug"
+"Offense" --> "Bracken"
+"Offense" --> "Thumper"
+"Offense" --> "Hygrodere"
+"Offense" --> "Spore Lizard"
+"Offense" --> "Coil-Head"
+"Offense" --> "Forest Keeper"
+"Offense" --> "Earth Leviathan"
+"Offense" --> "Baboon Hawk"
+"Offense" --> "Manticoil"
+"Offense" --> "Tattered metal sheet"
+"Offense" --> "Gift Box"
+"Offense" --> "Magnifying glass"
+"Offense" --> "Remote"
+"Offense" --> "Robot toy"
+"Offense" --> "Apparatice"
+"Offense" --> "Large axle"
+"Offense" --> "Laser pointer"
+"Offense" --> "Magic 7 ball"
+"Offense" --> "Plastic fish"
+"Offense" --> "Tea kettle"
+"Offense" --> "Teeth"
+"Offense" --> "Toothpaste"
+class "March"
+"March" : {field} March check 1
+"March" : {field} March check 2
+"March" : {field} March check 3
+"March" --> "Snare Flea"
+"March" --> "Bunker Spider"
+"March" --> "Hoarding Bug"
+"March" --> "Bracken"
+"March" --> "Thumper"
+"March" --> "Hygrodere"
+"March" --> "Spore Lizard"
+"March" --> "Coil-Head"
+"March" --> "Forest Keeper"
+"March" --> "Earth Leviathan"
+"March" --> "Baboon Hawk"
+"March" --> "Circuit Bee"
+"March" --> "Manticoil"
+"March" --> "Roaming Locust"
+"March" --> "Whoopie-Cushion"
+"March" --> "Airhorn"
+"March" --> "Clown horn"
+"March" --> "Gold bar"
+"March" --> "Toy cube"
+"March" --> "Apparatice"
+"March" --> "Bee Hive"
+"March" --> "Large axle"
+"March" --> "Laser pointer"
+"March" --> "Magic 7 ball"
+"March" --> "Plastic fish"
+"March" --> "Tea kettle"
+"March" --> "Teeth"
+"March" --> "Toothpaste"
+"March" --> "Goodbye"
+class "Rend"
+"Rend" : {field} Rend check 1
+"Rend" : {field} Rend check 2
+"Rend" : {field} Rend check 3
+"Rend" --> "Snare Flea"
+"Rend" --> "Bunker Spider"
+"Rend" --> "Bracken"
+"Rend" --> "Hygrodere"
+"Rend" --> "Spore Lizard"
+"Rend" --> "Nutcracker"
+"Rend" --> "Coil-Head"
+"Rend" --> "Jester"
+"Rend" --> "Eyeless Dog"
+"Rend" --> "Forest Keeper"
+"Rend" --> "Earth Leviathan"
+"Rend" --> "Painting"
+"Rend" --> "Ring"
+"Rend" --> "Fancy lamp"
+"Rend" --> "Candy"
+"Rend" --> "Brass bell"
+"Rend" --> "Double-barrel"
+"Rend" --> "Large axle"
+"Rend" --> "Laser pointer"
+"Rend" --> "Magic 7 ball"
+"Rend" --> "Plastic fish"
+"Rend" --> "Tea kettle"
+"Rend" --> "Teeth"
+"Rend" --> "Toothpaste"
+"Rend" --> "Golden Planet"
+"Rend" --> "Idea"
+"Rend" --> "Nonsense"
+class "Dine"
+"Dine" : {field} Dine check 1
+"Dine" : {field} Dine check 2
+"Dine" : {field} Dine check 3
+"Dine" --> "Snare Flea"
+"Dine" --> "Bunker Spider"
+"Dine" --> "Hoarding Bug"
+"Dine" --> "Bracken"
+"Dine" --> "Thumper"
+"Dine" --> "Hygrodere"
+"Dine" --> "Spore Lizard"
+"Dine" --> "Nutcracker"
+"Dine" --> "Coil-Head"
+"Dine" --> "Jester"
+"Dine" --> "Forest Keeper"
+"Dine" --> "Earth Leviathan"
+"Dine" --> "Tragedy"
+"Dine" --> "Jar of pickles"
+"Dine" --> "Cash register"
+"Dine" --> "Coffee mug"
+"Dine" --> "Hairdryer"
+"Dine" --> "Double-barrel"
+"Dine" --> "Large axle"
+"Dine" --> "Laser pointer"
+"Dine" --> "Magic 7 ball"
+"Dine" --> "Plastic fish"
+"Dine" --> "Tea kettle"
+"Dine" --> "Teeth"
+"Dine" --> "Toothpaste"
+"Dine" --> "Hiding"
+class "Titan"
+"Titan" : {field} Titan check 1
+"Titan" : {field} Titan check 2
+"Titan" : {field} Titan check 3
+"Titan" --> "Snare Flea"
+"Titan" --> "Bunker Spider"
+"Titan" --> "Hoarding Bug"
+"Titan" --> "Bracken"
+"Titan" --> "Thumper"
+"Titan" --> "Hygrodere"
+"Titan" --> "Spore Lizard"
+"Titan" --> "Nutcracker"
+"Titan" --> "Coil-Head"
+"Titan" --> "Jester"
+"Titan" --> "Eyeless Dog"
+"Titan" --> "Forest Keeper"
+"Titan" --> "Earth Leviathan"
+"Titan" --> "Comedy"
+"Titan" --> "Golden cup"
+"Titan" --> "Old phone"
+"Titan" --> "Perfume bottle"
+"Titan" --> "Pill bottle"
+"Titan" --> "Apparatice"
+"Titan" --> "Double-barrel"
+"Titan" --> "Large axle"
+"Titan" --> "Laser pointer"
+"Titan" --> "Magic 7 ball"
+"Titan" --> "Plastic fish"
+"Titan" --> "Tea kettle"
+"Titan" --> "Teeth"
+"Titan" --> "Toothpaste"
+"Titan" --> "Real Job"
+"Titan" --> "Desmond"
+class "Company Building"
+"Company Building" --> "Victory"
+"Company Building" --> "Quotas"
+"Company Building" --> "Sound Behind the Wall"
+class "V-type engine"
+"V-type engine" : {field} Scrap - V-type engine
+class "DIY-Flashbang"
+"DIY-Flashbang" : {field} Scrap - DIY-Flashbang
+class "Dust pan"
+"Dust pan" : {field} Scrap - Dust pan
+class "Steering wheel"
+"Steering wheel" : {field} Scrap - Steering wheel
+class "Yield sign"
+"Yield sign" : {field} Scrap - Yield sign
+class "Swing of Things"
+"Swing of Things" : {field} Log - Swing of Things
+class "Shady"
+"Shady" : {field} Log - Shady
+class "Coil-Head"
+"Coil-Head" : {field} Bestiary Entry - Coil-Head
+class "Forest Keeper"
+"Forest Keeper" : {field} Bestiary Entry - Forest Keeper
+class "Egg beater"
+"Egg beater" : {field} Scrap - Egg beater
+class "Chemical jug"
+"Chemical jug" : {field} Scrap - Chemical jug
+class "Flask"
+"Flask" : {field} Scrap - Flask
+class "Hair brush"
+"Hair brush" : {field} Scrap - Hair brush
+class "Rubber Ducky"
+"Rubber Ducky" : {field} Scrap - Rubber Ducky
+class "Screams"
+"Screams" : {field} Log - Screams
+class "Tattered metal sheet"
+"Tattered metal sheet" : {field} Scrap - Tattered metal sheet
+class "Gift Box"
+"Gift Box" : {field} Scrap - Gift Box
+class "Magnifying glass"
+"Magnifying glass" : {field} Scrap - Magnifying glass
+class "Remote"
+"Remote" : {field} Scrap - Remote
+class "Robot toy"
+"Robot toy" : {field} Scrap - Robot toy
+class "Whoopie-Cushion"
+"Whoopie-Cushion" : {field} Scrap - Whoopie-Cushion
+class "Airhorn"
+"Airhorn" : {field} Scrap - Airhorn
+class "Clown horn"
+"Clown horn" : {field} Scrap - Clown horn
+class "Gold bar"
+"Gold bar" : {field} Scrap - Gold bar
+class "Toy cube"
+"Toy cube" : {field} Scrap - Toy cube
+class "Goodbye"
+"Goodbye" : {field} Log - Goodbye
+class "Nutcracker"
+"Nutcracker" : {field} Bestiary Entry - Nutcracker
+class "Jester"
+"Jester" : {field} Bestiary Entry - Jester
+class "Eyeless Dog"
+"Eyeless Dog" : {field} Bestiary Entry - Eyeless Dog
+class "Painting"
+"Painting" : {field} Scrap - Painting
+class "Ring"
+"Ring" : {field} Scrap - Ring
+class "Fancy lamp"
+"Fancy lamp" : {field} Scrap - Fancy lamp
+class "Candy"
+"Candy" : {field} Scrap - Candy
+class "Brass bell"
+"Brass bell" : {field} Scrap - Brass bell
+class "Double-barrel"
+"Double-barrel" : {field} Scrap - Double-barrel
+class "Golden Planet"
+"Golden Planet" : {field} Log - Golden Planet
+class "Idea"
+"Idea" : {field} Log - Idea
+class "Nonsense"
+"Nonsense" : {field} Log - Nonsense
+class "Tragedy"
+"Tragedy" : {field} Scrap - Tragedy
+class "Jar of pickles"
+"Jar of pickles" : {field} Scrap - Jar of pickles
+class "Cash register"
+"Cash register" : {field} Scrap - Cash register
+class "Coffee mug"
+"Coffee mug" : {field} Scrap - Coffee mug
+class "Hairdryer"
+"Hairdryer" : {field} Scrap - Hairdryer
+class "Hiding"
+"Hiding" : {field} Log - Hiding
+class "Comedy"
+"Comedy" : {field} Scrap - Comedy
+class "Golden cup"
+"Golden cup" : {field} Scrap - Golden cup
+class "Old phone"
+"Old phone" : {field} Scrap - Old phone
+class "Perfume bottle"
+"Perfume bottle" : {field} Scrap - Perfume bottle
+class "Pill bottle"
+"Pill bottle" : {field} Scrap - Pill bottle
+class "Real Job"
+"Real Job" : {field} Log - Real Job
+class "Desmond"
+"Desmond" : {field} Log - Desmond
+class "Victory"
+class "Quotas"
+"Quotas" : {field} Quota check 1
+"Quotas" : {field} Quota check 2
+"Quotas" : {field} Quota check 3
+"Quotas" : {field} Quota check 4
+"Quotas" : {field} Quota check 5
+"Quotas" : {field} Quota check 6
+"Quotas" : {field} Quota check 7
+"Quotas" : {field} Quota check 8
+"Quotas" : {field} Quota check 9
+"Quotas" : {field} Quota check 10
+"Quotas" : {field} Quota check 11
+"Quotas" : {field} Quota check 12
+"Quotas" : {field} Quota check 13
+"Quotas" : {field} Quota check 14
+"Quotas" : {field} Quota check 15
+"Quotas" : {field} Quota check 16
+"Quotas" : {field} Quota check 17
+"Quotas" : {field} Quota check 18
+"Quotas" : {field} Quota check 19
+"Quotas" : {field} Quota check 20
+class "Sound Behind the Wall"
+"Sound Behind the Wall" : {field} Log - Sound Behind the Wall
+@enduml
