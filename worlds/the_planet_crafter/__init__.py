@@ -5,6 +5,7 @@ from worlds.AutoWorld import World, WebWorld
 from .locations import generate_location_map
 from .items import item_map, items, classification_table, ThePlanetCrafterItem
 from .options import TPCOptions
+from .regions import generate_regions
 
 
 class ThePlanetCrafterWeb(WebWorld):
@@ -49,7 +50,7 @@ class ThePlanetCrafterWorld(World):
         pass
 
     def create_regions(self) -> None:
-        pass
+        generate_regions(self)
 
     def fill_slot_data(self) -> Mapping[str, Any]:
         return {}
