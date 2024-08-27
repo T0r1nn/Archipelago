@@ -1,6 +1,6 @@
 from typing import Mapping, Any, List
 
-from BaseClasses import MultiWorld, Item
+from BaseClasses import MultiWorld, Item, Tutorial
 from worlds.AutoWorld import World, WebWorld
 from .locations import generate_location_map
 from .items import item_map, items, classification_table, ThePlanetCrafterItem
@@ -9,7 +9,14 @@ from .regions import generate_regions
 
 
 class ThePlanetCrafterWeb(WebWorld):
-    pass
+    tutorials = [Tutorial(
+        "Multiworld Setup Guide",
+        "A guide to setting up the Lethal Company integration for Archipelago multiworld games.",
+        "English",
+        "setup_en.md",
+        "setup/en",
+        ["T0r1nn"]
+    )]
 
 
 class ThePlanetCrafterWorld(World):
