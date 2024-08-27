@@ -18,7 +18,7 @@ class RESOURCE_NAMES(Enum):
     ZEOLITE = 11
     SUPER_ALLOY = 12
 
-#will only account for the first 20 of this resource, if more is required then will logically require ore extractors
+#will only account for the first 20(subject to change) of this resource, if more is required then will logically require ore extractors
 RESOURCE_ACCESS: Dict[RESOURCE_NAMES, Callable[[CollectionState, int], bool]] = {
     RESOURCE_NAMES.IRON: lambda state, player: True,
     RESOURCE_NAMES.MAGNESIUM: lambda state, player: True,
