@@ -3,13 +3,14 @@ from typing import Dict, List, TYPE_CHECKING
 from BaseClasses import Location
 from .imported import data
 from .options import ChecksPerMoon, NumQuotas
+from .custom_content import custom_content
 
 if TYPE_CHECKING:
     from . import LethalCompanyWorld
 
 
 class LethalCompanyLocation(Location):
-    game: str = "Lethal Company"
+    game: str = f"Lethal Company{custom_content['name']}"
 
 
 lc_locations_start_id = 1966720
@@ -34,7 +35,7 @@ def get_default_location_map():
 
     bestiary_names = [[key for key in monster.keys()][0] for monster in data["bestiary"]]
 
-    moons = [" ".join(moon.split(" ")[1:]) for moon in data.get("moons")]
+    moons = [moon for moon in data.get("moons")]
 
     scrap_names = []
 
@@ -80,7 +81,7 @@ def generate_locations(world: "LethalCompanyWorld"):
 
     world.bestiary_names = [[key for key in monster.keys()][0] for monster in world.imported_data["bestiary"]]
 
-    moons = [" ".join(moon.split(" ")[1:]) for moon in world.imported_data.get("moons")]
+    moons = [moon for moon in world.imported_data.get("moons")]
 
     world.scrap_names = []
 
@@ -124,7 +125,7 @@ def generate_bestiary_moons(world: "LethalCompanyWorld", chance: float) -> Dict[
         b_moons = []
         for moon in entry[key]:
             if moon["chance"] > chance:
-                b_moons.append(" ".join(moon["moon_name"].split(" ")[1:]))
+                b_moons.append(moon["moon_name"])
         bestiary_moons[key] = b_moons
 
     return bestiary_moons
@@ -151,15 +152,15 @@ def generate_scrap_moons(world: "LethalCompanyWorld", chance: float) -> Dict[str
     scrap_data = world.imported_data["scrap"]
     for entry in scrap_data:
         key = [key for key in entry.keys()][0]
-        if key == "AP Apparatus - Custom":
+        if key.find("AP Apparatus") != -1:
             for moon in entry[key]:
                 if moon["chance"] > 0:
-                    scrap_moons[f"AP Apparatus - {' '.join(moon['moon_name'].split(' ')[1:])}"] = ([' '.join(moon['moon_name'].split(' ')[1:])] if moon["chance"] > chance else [])
+                    scrap_moons[f"AP Apparatus - {moon['moon_name']}"] = ([moon['moon_name']] if moon["chance"] > chance else [])
         else:
             s_moons = []
             for moon in entry[key]:
                 if moon["chance"] > chance:
-                    s_moons.append(" ".join(moon["moon_name"].split(" ")[1:]))
+                    s_moons.append(moon["moon_name"])
                 scrap_moons[key] = s_moons
 
     return scrap_moons
@@ -235,4 +236,4 @@ def generate_scrap_moons_alt(world: 'LethalCompanyWorld') -> Dict[str, List[str]
     return scrap_moons
 
 
-locations = {}
+locations : Dict[str, int] = {}

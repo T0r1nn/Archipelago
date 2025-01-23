@@ -87,8 +87,22 @@ class LethalCompanyWorld(World):
     item_name_to_id = get_default_item_map()
     location_name_to_id = get_default_location_map()
 
+    item_name_groups = {
+        "Moons": {moon for moon in data["moons"]},
+        "Items": {item for item in data["store"]},
+        "Vehicles": {vehicle for vehicle in data["vehicles"]}
+    }
+
+    location_name_groups = {
+        "Moons": {location for location in locations if location in {moon for moon in data["moons"]}},
+        "Bestiary": {location for location in locations if "Bestiary" in location},
+        "Scrap": {location for location in locations if "Scrap" in location},
+        "Quota": {location for location in locations if "Quota" in location},
+        "Logs": {location for location in locations if "Log" in location}
+    }
+
     data_version = 7
-    required_client_version = (0, 4, 4)
+    required_client_version = (0, 5, 0)
     web = LethalCompanyWeb()
     initial_world: string
     scrap_map = {}
@@ -125,19 +139,19 @@ class LethalCompanyWorld(World):
             if str(moon).lower().find(starting_moon_option.lower()) >= 0:
                 unlock = moon
         if unlock is None:
-            unlock = self.multiworld.random.choices(environment_pool, k=1)
+            unlock = self.multiworld.random.choices(environment_pool, k=1)[0]
 
         if (self.options.starting_stamina_bars.value == 0
                 and (self.options.randomize_terminal.value == 1
                      or self.options.randomize_company_building.value == 1)
                 and self.options.randomize_scanner.value == 1
                 and self.multiworld.players == 1):
-            while (unlock[0] == "Offense" or unlock[0] == "Titan" or unlock[0] == "Artifice" or unlock[0] == "Adamance"
-                   or unlock[0] == "Embrion"):
+            while (unlock == "Offense" or unlock == "Titan" or unlock == "Artifice" or unlock == "Adamance"
+                   or unlock == "Embrion"):
                 unlock = self.multiworld.random.choices(environment_pool, k=1)
 
-        self.multiworld.push_precollected(self.create_item(unlock[0]))
-        self.initial_world = unlock[0]
+        self.multiworld.push_precollected(self.create_item(unlock))
+        self.initial_world = unlock
 
     def create_items(self) -> None:
         # Generate item pool
