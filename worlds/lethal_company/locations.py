@@ -206,18 +206,7 @@ def generate_scrap_moons_alt(world: 'LethalCompanyWorld') -> Dict[str, List[str]
     world.scrap_map = scrap_moons
 
     inverse_scrap_map = {
-        "Common": [],
-        "Experimentation": [],
-        "Assurance": [],
-        "Vow": [],
-        "Offense": [],
-        "March": [],
-        "Adamance": [],
-        "Embrion": [],
-        "Rend": [],
-        "Dine": [],
-        "Titan": [],
-        "Artifice": []
+        "Common": []
     }
 
     for scrap, moons in world.scrap_map.items():
@@ -226,7 +215,7 @@ def generate_scrap_moons_alt(world: 'LethalCompanyWorld') -> Dict[str, List[str]
                 inverse_scrap_map[moon] = []
             inverse_scrap_map[moon].append(scrap)
 
-    spoiler_string = f"\n{world.player_name}'s Randomized scrap placements:"
+    spoiler_string = f"\n{world.player_name}'s Randomized scrap placements:\n"
 
     for moon, scrap in inverse_scrap_map.items():
         spoiler_string += f"{moon}: {', '.join(scrap)}\n"
