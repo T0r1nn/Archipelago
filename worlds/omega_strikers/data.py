@@ -1,0 +1,23 @@
+characters = [
+    "Juliette",
+    "Estelle",
+    "Dubu",
+    "Luna",
+    "Juno",
+    "Asher",
+    "Kai",
+    "Era",
+    "X",
+    "Aimi",
+    "Finii",
+    "Zen",
+    "Octavia",
+    "Vyce",
+    "Mako",
+    "Rune",
+    "Drek'ar",
+    "Atlas",
+    "Nao",
+    "Rasmus",
+    "Kazan"
+]
