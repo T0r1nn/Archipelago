@@ -68,7 +68,7 @@ def check_location(location_name: "str") -> Dict[str, int]:
     locations.update({location_name: location_id})
     return {location_name: location_id}
 
-def check_valid(character: str, category: str, world: "OmegaStrikersWorld", role: str = None) -> bool:
+def check_valid(character: str, category: str, world: "OmegaStrikersWorld", role: str = "") -> bool:
     brawler = character in world.options.brawlers.value
     midfield = character in world.options.midfielders.value
     goalie = character in world.options.goalies.value

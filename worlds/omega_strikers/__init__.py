@@ -1,15 +1,22 @@
-import string
-
-from .items import generate_items, get_default_item_map, item_table, OmegaStrikersItem
+from .items import generate_items, get_default_item_map, item_table, OmegaStrikersItem, SlotItemData
 from .locations import OmegaStrikersLocation, generate_locations, get_default_location_map
 from .rules import set_rules
 from BaseClasses import Item, ItemClassification, Tutorial, MultiWorld, Region
 from .options import OSOptions
 from worlds.AutoWorld import World, WebWorld
-from typing import List, TextIO
+from typing import List, LiteralString, Any
 from .regions import create_regions
-from Options import OptionGroup
-from . import options
+from worlds.LauncherComponents import launch_subprocess, components, Component, Type
+
+def run_client(*args: Any):
+    from .Client import main
+    launch_subprocess(main, "Omega Strikers Client")
+
+components.append(Component("Omega Strikers Client",
+                            func=run_client,
+                            game_name="Omega Strikers",
+                            component_type=Type.CLIENT
+                ))
 
 class OmegaStrikersWeb(WebWorld):
     tutorials = [Tutorial(
@@ -27,7 +34,7 @@ class OmegaStrikersWorld(World):
     """
     game = f"Omega Strikers"
     options_dataclass = OSOptions
-    options: OSOptions
+    options: OSOptions # type: ignore
     topology_present = False
 
     item_name_to_id = get_default_item_map()
@@ -40,28 +47,21 @@ class OmegaStrikersWorld(World):
     data_version = 7
     required_client_version = (0, 6, 2)
     web = OmegaStrikersWeb()
-    initial_striker: string = "Juliette"
+    initial_striker: LiteralString = "Juliette"
     scrap_map = {}
-    required_credit_count: int = 0
     imported_data = {}
     moons = []
     generated_items = []
-    slot_item_data = None
+    slot_item_data : SlotItemData
     characters = []
     spoiler_text = ""
-    required_lp_count = 5
+    required_lp_count: int = 5
 
     def __init__(self, multiworld, player: int):
         super().__init__(multiworld, player)
         self.generated_items, self.slot_item_data = generate_items()
 
     def generate_early(self) -> None:
-        generate_locations(self)
-
-    def create_items(self) -> None:
-        # Generate item pool
-        itempool: List = []
-
         for item in self.generated_items:
             name = item.create_item()
             if not (self.options.split_roles.value ^ ("(" in name)) and not name == self.initial_striker:
@@ -70,7 +70,16 @@ class OmegaStrikersWorld(World):
                    "Goalie" in name and name in self.options.goalies.value or \
                     not "(" in name:
                     self.characters.append(name)
-                    itempool.append(name)
+        self.required_lp_count = int((len(generate_locations(self)) - len(self.characters)) * self.options.lp_required.value/100.0)
+        self.characters.append(self.initial_striker)
+
+    def create_items(self) -> None:
+        # Generate item pool
+        itempool: List = []
+
+        for name in self.characters:
+            if name != self.initial_striker:
+                itempool.append(name)
 
         total_locations = len(generate_locations(self))
 
@@ -81,6 +90,8 @@ class OmegaStrikersWorld(World):
         # Convert itempool into real items
         itempool = list(map(lambda item_name: self.create_item(item_name), itempool))
         self.multiworld.itempool += itempool
+
+        self.multiworld.push_precollected(self.multiworld.create_item(self.initial_striker, self.player))
 
     def set_rules(self) -> None:
         set_rules(self)
@@ -109,8 +120,11 @@ class OmegaStrikersWorld(World):
     def create_item(self, name: str) -> Item:
         item_id = item_table[name]
         classification = self.slot_item_data.classification_table.get(name)
-        item = OmegaStrikersItem(name, classification, item_id, self.player)
-        return item
+        if(classification != None):
+            item = OmegaStrikersItem(name, classification, item_id, self.player)
+            return item
+        else:
+            return OmegaStrikersItem(name, ItemClassification.filler, item_id, self.player)
 
 
 def create_events(world: MultiWorld, player: int) -> None:

@@ -1,20 +1,27 @@
 from dataclasses import dataclass
-from Options import Choice, PerGameCommonOptions, OptionSet, Toggle
+from Options import Choice, PerGameCommonOptions, OptionSet, Toggle, Range
 from .data import characters
 
 
 class Goal(Choice):
     """
-    Win All:
+    Win All: Win once on every striker
 
-    McGuffin:
+    McGuffin: Receive a set amount of LP
     """
     display_name = "Game Mode"
     option_win_all = 0
     option_mcguffin = 1
     default = 0
-    slot = True
-    slot_name = "goal"
+
+class LPRequired(Range):
+    """
+    The % of total LP that must be collected to reach goal when the mcguffin game mode is selected.
+    """
+    display_name = "LP Required"
+    range_start = 1
+    range_end = 100
+    default = 80
 
 class Whitelist(OptionSet):
     """
@@ -103,6 +110,7 @@ class SplitRoles(Toggle):
 @dataclass
 class OSOptions(PerGameCommonOptions):
     game_mode: Goal
+    lp_required: LPRequired
     whitelist: Whitelist
     blacklist: Blacklist
     brawlers: Brawlers
