@@ -47,7 +47,7 @@ def get_default_item_map():
 def generate_items() -> Tuple[List[OSItem], SlotItemData]:
     slot_item_data = SlotItemData()
 
-    items = [OSItem(slot_item_data, char) for char in characters]+[OSItem(slot_item_data, char+"(Brawler)") for char in characters]+[OSItem(slot_item_data, char+"(Midfield)") for char in characters]+[OSItem(slot_item_data, char+"(Goalie)") for char in characters]
+    items = [OSItem(slot_item_data, char) for char in characters]
 
     OSItem(slot_item_data, "LP", ItemClassification.filler)
 

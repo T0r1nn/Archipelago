@@ -60,20 +60,27 @@ class OmegaStrikersWorld(World):
     def __init__(self, multiworld, player: int):
         super().__init__(multiworld, player)
         self.generated_items, self.slot_item_data = generate_items()
+        self.striker_pool: List[str] = []
 
     def generate_early(self) -> None:
         for item in self.generated_items:
             name = item.create_item()
-            if not (self.options.split_roles.value ^ ("(" in name)) and not name == self.initial_striker:
-                if "Brawler" in name and name in self.options.brawlers.value or \
-                   "Midfield" in name and name in self.options.midfielders.value or \
-                   "Goalie" in name and name in self.options.goalies.value or \
-                    not "(" in name:
-                    self.characters.append(name)
+            if name != self.initial_striker:
+                self.characters.append(name)
         self.required_lp_count = int((len(generate_locations(self)) - len(self.characters)) * self.options.lp_required.value/100.0)
         self.characters.append(self.initial_striker)
 
     def create_items(self) -> None:
+        # choose random strikers
+        if len(self.options.whitelist.value) > self.options.strikers.value:
+            self.striker_pool = self.random.choices(self.options.whitelist.value, k=self.options.strikers.value)
+        else:
+            for striker in self.options.whitelist.value:
+                self.striker_pool.append(striker)
+            remaining_slots = self.options.strikers.value - len(self.striker_pool)
+            pickable_strikers = [striker for striker in self.characters if not striker in self.striker_pool and not striker in self.options.blacklist.value]
+            self.striker_pool += self.random.choices(pickable_strikers, k=remaining_slots)
+
         # Generate item pool
         itempool: List = []
 
@@ -107,13 +114,13 @@ class OmegaStrikersWorld(World):
 
     def fill_slot_data(self):
         slot_data = {
-            
+            "Required GoalsAssists":self.options.x_goals_assists,
+            "Required LP":self.required_lp_count,
+            "Required KOs":self.options.x_kos,
+            "Required Orbs":self.options.x_orbs,
+            "Required Saves":self.options.x_saves,
+            "Required Redirects":self.options.x_redirects
         }
-
-        for option in dir(self.options):
-            if hasattr(getattr(self.options, option), "slot"):
-                if getattr(self.options, option).slot:
-                    slot_data[getattr(self.options, option).slot_name] = getattr(self.options, option).value
 
         return slot_data
 

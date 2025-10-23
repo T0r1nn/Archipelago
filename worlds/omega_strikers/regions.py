@@ -39,9 +39,7 @@ def create_regions(options: OSOptions, world: "OmegaStrikersWorld"):
         game.connect(char_regions[-1], rule = lambda state: (state.has(character, player)))
         for cat in categories:
             c = character
-            if "(" in c:
-                c = character[0:character.index("(")]
-            if(check_valid(c, cat, world, "B" if "Brawler" in character else "M" if "Midfield" in character else "G" if "Goalie" in character else "")):
+            if(check_valid(c, cat, world)):
                 add_location(player, f"{character} - Get X {cat}", multiworld.get_region(character, world.player))
 
 def add_location(player: int, location: str, region: Region):

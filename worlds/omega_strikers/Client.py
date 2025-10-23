@@ -6,23 +6,10 @@ from typing import Optional
 import os
 
 if __name__ == "__main__":
-    Utils.init_logging("LOLClient", exception_logger="Client")
+    Utils.init_logging("OSClient", exception_logger="Client")
 
 class OSCommandProcessor(ClientCommandProcessor):
-    @mark_raw # type: ignore
-    def _cmd_test(self, text:str):
-        """test command"""
-        self.output(text)
-        return True
-    
-    def _cmd_striker(self, striker: str):
-        """Sets the striker you're currently playing"""
-        return True
-
-    def _cmd_send(self, goalsAssists, saves, kos, damage, shots, redirects, orbs):
-        """Sends checks based on the stats"""
-        print(f"{goalsAssists} goals + assists, {saves} saves, {kos} kos, {damage} damage, {shots} shots, {redirects} redirects, {orbs} orbs")
-        return True
+    pass
     
 class OSContext(CommonContext):
     command_processor = OSCommandProcessor
