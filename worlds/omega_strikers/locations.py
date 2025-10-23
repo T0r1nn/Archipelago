@@ -42,6 +42,14 @@ def generate_locations(world: "OmegaStrikersWorld"):
     
     return location_result
 
+def check_location_amount(world: "OmegaStrikersWorld"):
+    count = 0
+    for char in world.striker_pool:
+        for cat in categories:
+            if check_valid(char, cat, world):
+                count+=1
+    return count
+
 def check_location(location_name: "str") -> Dict[str, int]:
     global max_id
     global locations

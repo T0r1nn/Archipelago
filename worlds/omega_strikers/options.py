@@ -35,47 +35,47 @@ class Strikers(Range):
     range_end = 21
     default = 12
 
-class XGoalsAssists(Range):
+class GoalsAssists(Range):
     """
-    The total number of goals and assists combined you need on a character to get the Get X Goals+Assists check
+    The total number of goals and assists combined you need on a character to get goal+assist checks
     """
-    display_name = "X Goals+Assists"
+    display_name = "GoalsAssists"
     range_start = 1
     range_end = 13
     default = 5
 
-class XKOs(Range):
+class KOs(Range):
     """
-    The total number of KOs you need on a character to get the Get X KOs check
+    The total number of KOs you need on a character to get KO checks
     """
-    display_name = "X KOs"
+    display_name = "KOs"
     range_start = 1
     range_end = 20
     default = 3
 
-class XSaves(Range):
+class Saves(Range):
     """
-    The total number of saves you need on a character to get the Get X Saves check
+    The total number of saves you need on a character to get save checks
     """
-    display_name = "X Saves"
+    display_name = "Saves"
     range_start = 1
     range_end = 200
     default = 75
 
-class XRedirects(Range):
+class Redirects(Range):
     """
-    The total number of redirects you need on a character to get the Get X Redirects check
+    The total number of redirects you need on a character to get the redirect checks
     """
-    display_name = "X Redirects"
+    display_name = "Redirects"
     range_start = 1
     range_end = 300
     default = 120
 
-class XOrbs(Range):
+class Orbs(Range):
     """
-    The total number of orbs you need on a character to get the Get X Orbs check
+    The total number of orbs you need on a character to get the orb checks
     """
-    display_name = "X Orbs"
+    display_name = "Orbs"
     range_start = 1
     range_end = 45
     default = 25
@@ -152,11 +152,6 @@ class OSOptions(PerGameCommonOptions):
     game_mode: Goal
     lp_required: LPRequired
     strikers: Strikers
-    x_goals_assists: XGoalsAssists
-    x_redirects: XRedirects
-    x_saves: XSaves
-    x_kos: XKOs
-    x_orbs: XOrbs
     whitelist: Whitelist
     blacklist: Blacklist
     goals_assists_blacklist: GoalsAssistsBlacklist

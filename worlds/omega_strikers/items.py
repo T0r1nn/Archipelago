@@ -39,16 +39,15 @@ class OSItem:
 item_table: Dict[str, int] = {}
 
 
-def get_default_item_map():
-    generate_items()
+def get_default_item_map(world: "OmegaStrikersWorld|None"):
+    generate_items(world)
     return item_table
 
 
-def generate_items() -> Tuple[List[OSItem], SlotItemData]:
+def generate_items(world: "OmegaStrikersWorld|None") -> Tuple[List[OSItem], SlotItemData]:
     slot_item_data = SlotItemData()
 
     items = [OSItem(slot_item_data, char) for char in characters]
-
-    OSItem(slot_item_data, "LP", ItemClassification.filler)
+    OSItem(slot_item_data, "LP", ItemClassification.progression)
 
     return items, slot_item_data

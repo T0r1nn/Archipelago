@@ -1,5 +1,5 @@
 from .items import generate_items, get_default_item_map, item_table, OmegaStrikersItem, SlotItemData
-from .locations import OmegaStrikersLocation, generate_locations, get_default_location_map
+from .locations import OmegaStrikersLocation, generate_locations, get_default_location_map, check_location_amount
 from .rules import set_rules
 from BaseClasses import Item, ItemClassification, Tutorial, MultiWorld, Region
 from .options import OSOptions
@@ -7,6 +7,7 @@ from worlds.AutoWorld import World, WebWorld
 from typing import List, LiteralString, Any
 from .regions import create_regions
 from worlds.LauncherComponents import launch_subprocess, components, Component, Type
+from .data import characters
 
 def run_client(*args: Any):
     from .Client import main
@@ -37,7 +38,7 @@ class OmegaStrikersWorld(World):
     options: OSOptions # type: ignore
     topology_present = False
 
-    item_name_to_id = get_default_item_map()
+    item_name_to_id = get_default_item_map(None)
     location_name_to_id = get_default_location_map()
 
     item_name_groups = {}
@@ -47,48 +48,49 @@ class OmegaStrikersWorld(World):
     data_version = 7
     required_client_version = (0, 6, 2)
     web = OmegaStrikersWeb()
-    initial_striker: LiteralString = "Juliette"
+    initial_striker: str = ""
     scrap_map = {}
     imported_data = {}
     moons = []
     generated_items = []
     slot_item_data : SlotItemData
-    characters = []
     spoiler_text = ""
     required_lp_count: int = 5
 
     def __init__(self, multiworld, player: int):
         super().__init__(multiworld, player)
-        self.generated_items, self.slot_item_data = generate_items()
         self.striker_pool: List[str] = []
 
     def generate_early(self) -> None:
-        for item in self.generated_items:
-            name = item.create_item()
-            if name != self.initial_striker:
-                self.characters.append(name)
-        self.required_lp_count = int((len(generate_locations(self)) - len(self.characters)) * self.options.lp_required.value/100.0)
-        self.characters.append(self.initial_striker)
-
-    def create_items(self) -> None:
-        # choose random strikers
         if len(self.options.whitelist.value) > self.options.strikers.value:
-            self.striker_pool = self.random.choices(self.options.whitelist.value, k=self.options.strikers.value)
+            self.striker_pool = self.random.choices([item for item in self.options.whitelist.value], k=self.options.strikers.value)
         else:
             for striker in self.options.whitelist.value:
                 self.striker_pool.append(striker)
             remaining_slots = self.options.strikers.value - len(self.striker_pool)
-            pickable_strikers = [striker for striker in self.characters if not striker in self.striker_pool and not striker in self.options.blacklist.value]
-            self.striker_pool += self.random.choices(pickable_strikers, k=remaining_slots)
+            pickable_strikers = []
+            for striker in characters:
+                if striker not in self.striker_pool and striker not in self.options.blacklist.value:
+                    pickable_strikers.append(striker)
+            print(pickable_strikers)
+            self.striker_pool += self.random.sample(pickable_strikers, k=remaining_slots)
+        
+        self.required_lp_count = int((len(generate_locations(self)) - len(self.striker_pool)) * self.options.lp_required.value/100.0)
 
+        self.initial_striker = self.random.choice(self.striker_pool)
+        self.generated_items, self.slot_item_data = generate_items(self)
+
+    def create_items(self) -> None:
         # Generate item pool
         itempool: List = []
 
-        for name in self.characters:
+        for name in self.striker_pool:
             if name != self.initial_striker:
                 itempool.append(name)
 
-        total_locations = len(generate_locations(self))
+        print(itempool, self.initial_striker)
+
+        total_locations = len(self.multiworld.get_unfilled_locations())
 
         # Fill remaining items with randomly generated junk
         while len(itempool) < total_locations:
@@ -96,7 +98,7 @@ class OmegaStrikersWorld(World):
 
         # Convert itempool into real items
         itempool = list(map(lambda item_name: self.create_item(item_name), itempool))
-        self.multiworld.itempool += itempool
+        self.multiworld.itempool = itempool
 
         self.multiworld.push_precollected(self.multiworld.create_item(self.initial_striker, self.player))
 
@@ -113,13 +115,22 @@ class OmegaStrikersWorld(World):
         create_events(self.multiworld, self.player)
 
     def fill_slot_data(self):
-        slot_data = {
-            "Required GoalsAssists":self.options.x_goals_assists,
+        """slot_data = {
+            "Required GoalsAssists":self.options.goals_assists,
             "Required LP":self.required_lp_count,
-            "Required KOs":self.options.x_kos,
-            "Required Orbs":self.options.x_orbs,
-            "Required Saves":self.options.x_saves,
-            "Required Redirects":self.options.x_redirects
+            "Required KOs":self.options.kos,
+            "Required Orbs":self.options.orbs,
+            "Required Saves":self.options.saves,
+            "Required Redirects":self.options.redirects
+        }"""
+
+        slot_data = {
+            "Required GoalsAssists":5,
+            "Required LP":self.required_lp_count,
+            "Required KOs":2,
+            "Required Orbs":45,
+            "Required Saves":80,
+            "Required Redirects":120
         }
 
         return slot_data
