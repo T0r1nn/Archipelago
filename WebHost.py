@@ -70,7 +70,7 @@ def copy_tutorials_files_to_static() -> None:
     base_target_path = Utils.local_path("WebHostLib", "static", "generated", "docs")
     shutil.rmtree(base_target_path, ignore_errors=True)
     for game, world in worlds.items():
-        # copy files from world's docs folder to the generated folder
+        # copy files from world's docs folder to the ge     nerated folder
         target_path = os.path.join(base_target_path, secure_filename(game))
         os.makedirs(target_path, exist_ok=True)
 

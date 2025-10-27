@@ -152,6 +152,11 @@ class OSOptions(PerGameCommonOptions):
     game_mode: Goal
     lp_required: LPRequired
     strikers: Strikers
+    goals_assists: GoalsAssists
+    redirects: Redirects
+    saves: Saves
+    kos: KOs
+    orbs: Orbs
     whitelist: Whitelist
     blacklist: Blacklist
     goals_assists_blacklist: GoalsAssistsBlacklist

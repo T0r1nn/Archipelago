@@ -49,9 +49,6 @@ class OmegaStrikersWorld(World):
     required_client_version = (0, 6, 2)
     web = OmegaStrikersWeb()
     initial_striker: str = ""
-    scrap_map = {}
-    imported_data = {}
-    moons = []
     generated_items = []
     slot_item_data : SlotItemData
     spoiler_text = ""
@@ -63,7 +60,7 @@ class OmegaStrikersWorld(World):
 
     def generate_early(self) -> None:
         if len(self.options.whitelist.value) > self.options.strikers.value:
-            self.striker_pool = self.random.choices([item for item in self.options.whitelist.value], k=self.options.strikers.value)
+            self.striker_pool = self.random.sample([item for item in self.options.whitelist.value], k=self.options.strikers.value)
         else:
             for striker in self.options.whitelist.value:
                 self.striker_pool.append(striker)
@@ -72,10 +69,9 @@ class OmegaStrikersWorld(World):
             for striker in characters:
                 if striker not in self.striker_pool and striker not in self.options.blacklist.value:
                     pickable_strikers.append(striker)
-            print(pickable_strikers)
             self.striker_pool += self.random.sample(pickable_strikers, k=remaining_slots)
         
-        self.required_lp_count = int((len(generate_locations(self)) - len(self.striker_pool)) * self.options.lp_required.value/100.0)
+        self.required_lp_count = int((check_location_amount(self) - len(self.striker_pool)) * self.options.lp_required.value/100.0)
 
         self.initial_striker = self.random.choice(self.striker_pool)
         self.generated_items, self.slot_item_data = generate_items(self)
@@ -88,9 +84,7 @@ class OmegaStrikersWorld(World):
             if name != self.initial_striker:
                 itempool.append(name)
 
-        print(itempool, self.initial_striker)
-
-        total_locations = len(self.multiworld.get_unfilled_locations())
+        total_locations = len(self.multiworld.get_unfilled_locations(self.player))
 
         # Fill remaining items with randomly generated junk
         while len(itempool) < total_locations:
@@ -98,7 +92,7 @@ class OmegaStrikersWorld(World):
 
         # Convert itempool into real items
         itempool = list(map(lambda item_name: self.create_item(item_name), itempool))
-        self.multiworld.itempool = itempool
+        self.multiworld.itempool += itempool
 
         self.multiworld.push_precollected(self.multiworld.create_item(self.initial_striker, self.player))
 
@@ -115,22 +109,13 @@ class OmegaStrikersWorld(World):
         create_events(self.multiworld, self.player)
 
     def fill_slot_data(self):
-        """slot_data = {
-            "Required GoalsAssists":self.options.goals_assists,
-            "Required LP":self.required_lp_count,
-            "Required KOs":self.options.kos,
-            "Required Orbs":self.options.orbs,
-            "Required Saves":self.options.saves,
-            "Required Redirects":self.options.redirects
-        }"""
-
         slot_data = {
-            "Required GoalsAssists":5,
+            "Required GoalsAssists":self.options.goals_assists.value,
             "Required LP":self.required_lp_count,
-            "Required KOs":2,
-            "Required Orbs":45,
-            "Required Saves":80,
-            "Required Redirects":120
+            "Required KOs":self.options.kos.value,
+            "Required Orbs":self.options.orbs.value,
+            "Required Saves":self.options.saves.value,
+            "Required Redirects":self.options.redirects.value
         }
 
         return slot_data
