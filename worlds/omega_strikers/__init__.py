@@ -49,9 +49,6 @@ class OmegaStrikersWorld(World):
     required_client_version = (0, 6, 2)
     web = OmegaStrikersWeb()
     initial_striker: str = ""
-    scrap_map = {}
-    imported_data = {}
-    moons = []
     generated_items = []
     slot_item_data : SlotItemData
     spoiler_text = ""
@@ -72,7 +69,6 @@ class OmegaStrikersWorld(World):
             for striker in characters:
                 if striker not in self.striker_pool and striker not in self.options.blacklist.value:
                     pickable_strikers.append(striker)
-            print(pickable_strikers)
             self.striker_pool += self.random.sample(pickable_strikers, k=remaining_slots)
         
         self.required_lp_count = int((check_location_amount(self) - len(self.striker_pool)) * self.options.lp_required.value/100.0)
@@ -88,9 +84,7 @@ class OmegaStrikersWorld(World):
             if name != self.initial_striker:
                 itempool.append(name)
 
-        print(itempool, self.initial_striker)
-
-        total_locations = len(self.multiworld.get_unfilled_locations())
+        total_locations = len(self.multiworld.get_unfilled_locations(self.player))
 
         # Fill remaining items with randomly generated junk
         while len(itempool) < total_locations:
@@ -98,7 +92,7 @@ class OmegaStrikersWorld(World):
 
         # Convert itempool into real items
         itempool = list(map(lambda item_name: self.create_item(item_name), itempool))
-        self.multiworld.itempool = itempool
+        self.multiworld.itempool += itempool
 
         self.multiworld.push_precollected(self.multiworld.create_item(self.initial_striker, self.player))
 

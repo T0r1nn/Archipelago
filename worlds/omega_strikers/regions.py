@@ -20,8 +20,6 @@ def create_regions(options: OSOptions, world: "OmegaStrikersWorld"):
 
     char_regions: List[Region] = []
 
-    print(world.required_lp_count)
-
     if options.game_mode.value == 1:
         game.connect(victory,
                                  rule=lambda state: (state.has("LP", player,
@@ -31,12 +29,9 @@ def create_regions(options: OSOptions, world: "OmegaStrikersWorld"):
 
     menu.connect(game, rule=lambda state: True)
 
-    print(world.striker_pool)
-
     for character in world.striker_pool:
         char_regions.append(Region(character, player, multiworld))
         multiworld.regions.append(char_regions[-1])
-        print(char_regions[-1].name, character)
         game.connect(char_regions[-1], rule = lambda state, char=character: (state.has(char, player)))
         for cat in categories:
             if(check_valid(character, cat, world)):
