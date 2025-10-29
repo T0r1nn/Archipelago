@@ -36,12 +36,12 @@ def create_regions(options: OSOptions, world: "OmegaStrikersWorld"):
     for character in world.striker_pool:
         char_regions.append(Region(character, player, multiworld))
         multiworld.regions.append(char_regions[-1])
-        game.connect(char_regions[-1], rule = lambda state: (state.has(character, player)))
+        print(char_regions[-1].name, character)
+        game.connect(char_regions[-1], rule = lambda state, char=character: (state.has(char, player)))
         for cat in categories:
-            c = character
-            if(check_valid(c, cat, world)):
+            if(check_valid(character, cat, world)):
                 add_location(player, f"{character} - Get X {cat}", multiworld.get_region(character, world.player))
 
 def add_location(player: int, location: str, region: Region):
+    print(region.name, location)
     region.locations.append(Location(player, location, locations[location], region))
-    region.locations[-1].access_rule = lambda state: state.has(region.name, player)

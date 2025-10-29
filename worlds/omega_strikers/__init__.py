@@ -63,7 +63,7 @@ class OmegaStrikersWorld(World):
 
     def generate_early(self) -> None:
         if len(self.options.whitelist.value) > self.options.strikers.value:
-            self.striker_pool = self.random.choices([item for item in self.options.whitelist.value], k=self.options.strikers.value)
+            self.striker_pool = self.random.sample([item for item in self.options.whitelist.value], k=self.options.strikers.value)
         else:
             for striker in self.options.whitelist.value:
                 self.striker_pool.append(striker)
@@ -75,7 +75,7 @@ class OmegaStrikersWorld(World):
             print(pickable_strikers)
             self.striker_pool += self.random.sample(pickable_strikers, k=remaining_slots)
         
-        self.required_lp_count = int((len(generate_locations(self)) - len(self.striker_pool)) * self.options.lp_required.value/100.0)
+        self.required_lp_count = int((check_location_amount(self) - len(self.striker_pool)) * self.options.lp_required.value/100.0)
 
         self.initial_striker = self.random.choice(self.striker_pool)
         self.generated_items, self.slot_item_data = generate_items(self)
@@ -115,22 +115,13 @@ class OmegaStrikersWorld(World):
         create_events(self.multiworld, self.player)
 
     def fill_slot_data(self):
-        """slot_data = {
-            "Required GoalsAssists":self.options.goals_assists,
-            "Required LP":self.required_lp_count,
-            "Required KOs":self.options.kos,
-            "Required Orbs":self.options.orbs,
-            "Required Saves":self.options.saves,
-            "Required Redirects":self.options.redirects
-        }"""
-
         slot_data = {
-            "Required GoalsAssists":5,
+            "Required GoalsAssists":self.options.goals_assists.value,
             "Required LP":self.required_lp_count,
-            "Required KOs":2,
-            "Required Orbs":45,
-            "Required Saves":80,
-            "Required Redirects":120
+            "Required KOs":self.options.kos.value,
+            "Required Orbs":self.options.orbs.value,
+            "Required Saves":self.options.saves.value,
+            "Required Redirects":self.options.redirects.value
         }
 
         return slot_data
