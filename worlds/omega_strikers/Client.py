@@ -2,35 +2,54 @@ from CommonClient import CommonContext, ClientCommandProcessor, server_loop, gui
 from MultiServer import mark_raw, NetworkItem
 import Utils
 import asyncio
-from typing import Optional
+from typing import TypedDict
+from .log_watch import LogWatcher
+from .locations import get_default_location_map
 import os
 
 if __name__ == "__main__":
     Utils.init_logging("OSClient", exception_logger="Client")
 
+
+class CharProgress(TypedDict):
+    Wins: int
+    Sets: int
+    Goals: int
+    Strikes: int
+    Primaries: int
+    Secondaries: int
+    Specials: int
+
+
 class OSCommandProcessor(ClientCommandProcessor):
-    pass
+    ctx: "OSContext"
+    def _cmd_get_game(self):
+        """Prints the most recent game"""
+        data = LogWatcher(self.ctx.username).getLastGameInfo()
+        result = f"Character: {data['Character']}\nTeam: {data['Team']}\nScore: {data['Score']}\nSets: {data['Sets']}\nStrikes: {data['Strikes']}\nPrimaries: {data['Primaries']}\nSecondaries: {data['Secondaries']}\nSpecials: {data['Specials']}\n"
+        result += "Awakenings:\n"
+        for awakening in data["Awakenings"]:
+            result += " - "+awakening+"\n"
+        self.output(result)
+    def _cmd_set_username(self, username):
+        """Changes the set username, useful if you switch accounts or change usernames"""
+        pass
+
     
 class OSContext(CommonContext):
     command_processor = OSCommandProcessor
     game = "Omega Strikers"
     items_handling = 0b111
+    location_id_map = get_default_location_map()
+    slot_data = {}
+    progress_data:dict[str, CharProgress] = {}
+    awakenings_found:list[str] = []
 
     def __init__(self, server_address: str | None = None, password: str | None = None) -> None:
         super(OSContext, self).__init__(server_address, password)
         self.syncing = False
         self.send_index = 0
         self.awaiting_bridge = False
-        if "localappdata" in os.environ:
-            self.game_communication_path = os.path.expandvars(r"%localappdata%/OSAP")
-        else:
-            self.game_communication_path = os.path.expandvars(r"$HOME/OSAP")
-        if not os.path.exists(self.game_communication_path):
-            os.makedirs(self.game_communication_path)
-        for root, dirs, files in os.walk(self.game_communication_path):
-            for file in files:
-                if file.find("obtain") <= -1:
-                    os.remove(root + "/" + file)
 
     async def server_auth(self, password_requested: bool = False):
         if password_requested and not self.password:
@@ -40,10 +59,6 @@ class OSContext(CommonContext):
 
     async def connection_closed(self):
         await super(OSContext, self).connection_closed()
-        for root, dirs, files in os.walk(self.game_communication_path):
-            for file in files:
-                if file.find("obtain") <= -1:
-                    os.remove(root + "/" + file)
 
     @property
     def endpoints(self):
@@ -54,78 +69,76 @@ class OSContext(CommonContext):
         
     async def shutdown(self):
         await super(OSContext, self).shutdown()
-        for root, dirs, files in os.walk(self.game_communication_path):
-            for file in files:
-                if file.find("obtain") <= -1:
-                    os.remove(root + "/" + file)
     
     def on_package(self, cmd: str, args: dict):
         if cmd in {"Connected"}:
-            if not os.path.exists(self.game_communication_path):
-                os.makedirs(self.game_communication_path)
-            for ss in self.checked_locations:
-                filename = f"send{ss}"
-                with open(os.path.join(self.game_communication_path, filename), 'w') as f:
-                    f.close()
+            self.set_notify("username")
             #Handle Slot Data
             for slot_data_key in list(args['slot_data'].keys()):
-                with open(os.path.join(self.game_communication_path, slot_data_key.replace(" ", "_") + ".cfg"), 'w') as f:
-                    f.write(str(args['slot_data'][slot_data_key]))
-                    f.close()
+                self.slot_data[slot_data_key] = args["slot_data"][slot_data_key]
             #End Handle Slot Data
-            
-        if cmd in {"ReceivedItems"}:
-            start_index = args["index"]
-            if start_index != len(self.items_received):
-                for item in args['items']:
-                    check_num = 0
-                    for filename in os.listdir(self.game_communication_path):
-                        if filename.startswith("AP"):
-                            if int(filename.split("_")[-1].split(".")[0]) > check_num:
-                                check_num = int(filename.split("_")[-1].split(".")[0])
-                    item_id = ""
-                    location_id = ""
-                    player = ""
-                    found = False
-                    for filename in os.listdir(self.game_communication_path):
-                        if filename.startswith(f"AP"):
-                            with open(os.path.join(self.game_communication_path, filename), 'r') as f:
-                                item_id = str(f.readline()).replace("\n", "")
-                                location_id = str(f.readline()).replace("\n", "")
-                                player = str(f.readline()).replace("\n", "")
-                                if str(item_id) == str(NetworkItem(*item).item) and str(location_id) == str(NetworkItem(*item).location) and str(player) == str(NetworkItem(*item).player) and int(location_id) > 0:
-                                    found = True
-                    if not found:
-                        filename = f"AP_{str(check_num+1)}.item"
-                        with open(os.path.join(self.game_communication_path, filename), 'w') as f:
-                            f.write(str(NetworkItem(*item).item) + "\n" + str(NetworkItem(*item).location) + "\n" + str(NetworkItem(*item).player))
-                            f.close()
-
+            if self.slot != None and f"{self.player_names[self.slot]}-OmegaStrikers-username" in self.stored_data:
+                self.slot_data["username"] = self.stored_data[f"{self.player_names[self.slot]}-OmegaStrikers-username"]
         if cmd in {"RoomUpdate"}:
-            if "checked_locations" in args:
-                for ss in self.checked_locations:
-                    filename = f"send{ss}"
-                    with open(os.path.join(self.game_communication_path, filename), 'w') as f:
-                        f.close()
+            if self.slot != None and f"{self.player_names[self.slot]}-OmegaStrikers-username" in self.stored_data:
+                self.slot_data["username"] = self.stored_data[f"{self.player_names[self.slot]}-OmegaStrikers-username"]
+            for item_name in args["checked_locations"]:
+                print(item_name)
 
 async def game_watcher(ctx: OSContext):
+    watcher = LogWatcher(ctx.slot_data["username"])
+    stat_to_check_name_map = {
+        "Goals": "Get X Goals",
+        "Strikes": "Strike X Times",
+        "Primaries": "Primary X Times",
+        "Secondaries": "Secondary X Times",
+        "Specials": "Special X Times",
+        "Wins": "Win X Games",
+        "Sets": "Win X Sets"
+    }
     while not ctx.exit_event.is_set():
+        if ctx.username != watcher.username:
+            watcher.username = ctx.username
         if ctx.syncing == True:
             sync_msg = [{'cmd': 'Sync'}]
             if ctx.locations_checked:
                 sync_msg.append({"cmd": "LocationChecks", "locations": list(ctx.locations_checked)}) # type: ignore
             await ctx.send_msgs(sync_msg)
             ctx.syncing = False
-        sending = [] 
-        victory = False
-        for root, dirs, files in os.walk(ctx.game_communication_path):
-            for file in files:
-                if file.find("send") > -1:
-                    st = file.split("send", -1)[1]
-                    if st != "nil":
-                        sending = sending+[(int(st))]
-                if file.find("victory") > -1:
-                    victory = True
+        sending = []
+        victory = False #TODO: detect victory
+        
+        if watcher.checkHasPlayedGame():
+            data = watcher.getLastGameInfo()
+            for awakening in data["Awakenings"]:
+                if awakening not in ctx.awakenings_found:
+                    ctx.awakenings_found.append(f"Awakening - {awakening}")
+            char = data["Character"]
+            if char not in ctx.progress_data.keys():
+                ctx.progress_data[char] = {"Wins":0, "Sets": 0, "Goals": 0, "Strikes": 0, "Primaries": 0, "Secondaries": 0, "Specials": 0}
+            if data["Won"]:
+                ctx.progress_data[char]["Wins"] += 1
+            ctx.progress_data[char]["Goals"] += data["Score"]
+            ctx.progress_data[char]["Primaries"] += data["Primaries"]
+            ctx.progress_data[char]["Secondaries"] += data["Secondaries"]
+            ctx.progress_data[char]["Sets"] += data["Sets"]
+            ctx.progress_data[char]["Specials"] += data["Specials"]
+            ctx.progress_data[char]["Strikes"] += data["Strikes"]
+        
+        for char in ctx.progress_data.keys():
+            check_names = []
+            for key in ctx.progress_data[char]:
+                if ctx.progress_data[char][key] > ctx.slot_data[key]:
+                    check_names.append(f"{char} - {stat_to_check_name_map[key]}")
+            
+            for check in check_names:
+                sending.append(ctx.location_id_map[check])
+            
+            for awakening in ctx.awakenings_found:
+                sending.append(ctx.location_id_map[f"Awakening - {awakening}"])
+
+        watcher.most_recent_timestamp = watcher.getMostRecentTimestamp()
+
         ctx.locations_checked = sending # type: ignore
         message = [{"cmd": 'LocationChecks', "locations": sending}]
         await ctx.send_msgs(message)

@@ -1,7 +1,7 @@
 import math
 from typing import Dict, TYPE_CHECKING
 from BaseClasses import Location
-from .data import characters
+from .data import characters, in_rotation_trainings
 
 if TYPE_CHECKING:
     from . import OmegaStrikersWorld
@@ -11,28 +11,32 @@ class OmegaStrikersLocation(Location):
     game: str = f"Omega Strikers"
 
 
-os_locations_start_id = 1869590
+os_locations_start_id = 0
 max_id = os_locations_start_id
 categories = [
-    "Goals+Assists",
-    "KOs",
-    "Saves",
-    "Redirects",
-    "Orbs",
-    "Wins"
+    "Get X Goals",
+    "Strike X Times",
+    "Primary X Times",
+    "Secondary X Times",
+    "Special X Times",
+    "Win X Games",
+    "Win X Sets"
 ]
 
-def get_default_location_map():
+def get_default_location_map() -> Dict[str, int]:
     location_result = {}
 
     for i in range(len(characters)):
         for j in range(len(categories)):
             location_result.update(check_location(f"{characters[i]} - Get X {categories[j]}"))
 
+    for value in in_rotation_trainings.values():
+        location_result.update(check_location(f"Awakening - {value}"))
+
     return location_result
 
 
-def generate_locations(world: "OmegaStrikersWorld"):
+def generate_locations(world: "OmegaStrikersWorld") -> Dict[str, int]:
     location_result = {}
 
     for char in characters:
@@ -42,7 +46,7 @@ def generate_locations(world: "OmegaStrikersWorld"):
     
     return location_result
 
-def check_location_amount(world: "OmegaStrikersWorld"):
+def check_location_amount(world: "OmegaStrikersWorld") -> int:
     count = 0
     for char in world.striker_pool:
         for cat in categories:
@@ -63,16 +67,6 @@ def check_location(location_name: "str") -> Dict[str, int]:
     return {location_name: location_id}
 
 def check_valid(character: str, category: str, world: "OmegaStrikersWorld", role: str = "") -> bool:
-    category_map = {
-        "Goals+Assists":world.options.goals_assists_blacklist.value,
-        "KOs":world.options.kos_blacklist.value,
-        "Saves":world.options.saves_blacklist.value,
-        "Redirects":world.options.redirects_blacklist.value,
-        "Orbs":world.options.orbs_blacklist.value,
-    }
-    if category == "Wins":
-        return True
-    else:
-        return not character in category_map[category]
+    return True
     
 locations : Dict[str, int] = {}
