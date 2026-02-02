@@ -35,7 +35,7 @@ class OSCommandProcessor(ClientCommandProcessor):
     def _cmd_set_username(self, username):
         """Changes the set username, useful if you switch accounts or change usernames"""
         self.ctx.slot_data["username"] = username
-        self.ctx.send_msgs([{"cmd":"Set", "key":f"{self.ctx.slot}OmegaStrikers-username", "default":username, "want_replay":False, "operations":[{"operation":"default"},{"operation":"replace", "value":username}]}]) # pyright: ignore[reportUnusedCoroutine]
+        self.ctx.send_msgs([{"cmd":"Set", "key":f"{self.ctx.slot}OmegaStrikers-username", "default":username, "want_replay":True, "operations":[{"operation":"replace", "value":username}]}]) # pyright: ignore[reportUnusedCoroutine]
     def _cmd_get_username(self):
         """Prints the currently set username"""
         self.output(self.ctx.slot_data["username"])
@@ -85,11 +85,14 @@ class OSContext(CommonContext):
                 self.slot_data[slot_data_key] = args["slot_data"][slot_data_key]
         if cmd in {"Retrieved"}:
             if f"{self.slot}OmegaStrikers-username" in args["keys"]:
-                self.slot_data["username"] = args["keys"][f"{self.slot}OmegaStrikers-username"]
+                if args["keys"][f"{self.slot}OmegaStrikers-username"] != None:
+                    self.slot_data["username"] = args["keys"][f"{self.slot}OmegaStrikers-username"]
             if f"{self.slot}OmegaStrikers-progress" in args["keys"]:
-                self.progress_data = args["keys"][f"{self.slot}OmegaStrikers-progress"]
+                if args["keys"][f"{self.slot}OmegaStrikers-progress"] != None:
+                    self.progress_data = args["keys"][f"{self.slot}OmegaStrikers-progress"]
             if f"{self.slot}OmegaStrikers-awakenings" in args["keys"]:
-                self.awakenings_found = args["keys"][f"{self.slot}OmegaStrikers-awakenings"]
+                if args["keys"][f"{self.slot}OmegaStrikers-awakenings"] != None:
+                    self.awakenings_found = args["keys"][f"{self.slot}OmegaStrikers-awakenings"]
         if cmd in {"SetReply"}:
             print(args)
             if f"{self.slot}OmegaStrikers-username" == args["key"]:
