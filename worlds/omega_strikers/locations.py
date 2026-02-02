@@ -28,7 +28,7 @@ def get_default_location_map() -> Dict[str, int]:
 
     for i in range(len(characters)):
         for j in range(len(categories)):
-            location_result.update(check_location(f"{characters[i]} - Get X {categories[j]}"))
+            location_result.update(check_location(f"{characters[i]} - {categories[j]}"))
 
     for value in in_rotation_trainings.values():
         location_result.update(check_location(f"Awakening - {value}"))
@@ -43,11 +43,14 @@ def generate_locations(world: "OmegaStrikersWorld") -> Dict[str, int]:
         for cat in categories:
             if check_valid(char, cat, world):
                 location_result.update(check_location(f"{char} - Get X {cat}"))
+
+    for value in in_rotation_trainings.values():
+        location_result.update(check_location(f"Awakening - {value}"))
     
     return location_result
 
 def check_location_amount(world: "OmegaStrikersWorld") -> int:
-    count = 0
+    count = len(in_rotation_trainings.keys())
     for char in world.striker_pool:
         for cat in categories:
             if check_valid(char, cat, world):

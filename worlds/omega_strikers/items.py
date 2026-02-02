@@ -19,7 +19,7 @@ class SlotItemData:
 
 
 class OSItem:
-    id = 1869590
+    id = 0
 
     def __init__(self, slot_item_data: SlotItemData, name, classification = ItemClassification.progression):
         self.name = name

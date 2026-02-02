@@ -1,6 +1,7 @@
 from BaseClasses import MultiWorld, Region, Location
 from .locations import locations, check_valid, categories
 from .options import OSOptions
+from .data import in_rotation_trainings
 from typing import TYPE_CHECKING, List
 
 if TYPE_CHECKING:
@@ -17,8 +18,15 @@ def create_regions(options: OSOptions, world: "OmegaStrikersWorld"):
     multiworld.regions.append(game)
     victory: Region = Region("Victory", player, multiworld)
     multiworld.regions.append(victory)
+    awakenings: Region = Region("Awakenings", player, multiworld)
+    multiworld.regions.append(awakenings)
 
     char_regions: List[Region] = []
+
+    game.connect(awakenings)
+
+    for value in in_rotation_trainings.values():
+        add_location(player, f"Awakening - {value}", awakenings)
 
     if options.game_mode.value == 1:
         game.connect(victory,
@@ -35,8 +43,9 @@ def create_regions(options: OSOptions, world: "OmegaStrikersWorld"):
         game.connect(char_regions[-1], rule = lambda state, char=character: (state.has(char, player)))
         for cat in categories:
             if(check_valid(character, cat, world)):
-                add_location(player, f"{character} - Get X {cat}", multiworld.get_region(character, world.player))
+                add_location(player, f"{character} - {cat}", multiworld.get_region(character, world.player))
+    
+
 
 def add_location(player: int, location: str, region: Region):
-    print(region.name, location)
     region.locations.append(Location(player, location, locations[location], region))

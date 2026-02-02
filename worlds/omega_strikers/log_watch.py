@@ -40,12 +40,13 @@ class GameInfo(TypedDict):
 
 class LogWatcher:
     def __init__(self, username):
-        self.filepath = os.path.expandvars("%localappdata%/OmegaStrikers/Saved/Logs/OmegaStrikers-backup-2026.01.14-06.37.37.log")
+        self.filepath = os.path.expandvars("%localappdata%/OmegaStrikers/Saved/Logs/OmegaStrikers.log")
         self.username = username
         self.most_recent_timestamp = self.getMostRecentTimestamp()
     def checkHasPlayedGame(self) -> bool:
         with open(self.filepath, "r") as file:
             lines = file.readlines()
+            file.close()
             lines.reverse()
             for line in lines:
                 if "TeamThatWonMatch" in line and self.getTimestampFromLine(line) > self.most_recent_timestamp:
@@ -60,6 +61,7 @@ class LogWatcher:
             stats_dict: GameInfo = {"Character": character, "Team": "", "Score": 0, "Sets": 0, "Strikes": 0, "Primaries": 0, "Secondaries": 0, "Specials": 0, "Awakenings": [], "Won": False}
             sets = {"TeamOne": 0, "TeamTwo": 0}
             lines = file.readlines()
+            file.close()
             lines.reverse()
             for line in lines:
                 if "NewTeam = EAssignedTeam::" in line:
@@ -116,6 +118,7 @@ class LogWatcher:
     def getLastCharPlayed(self) -> str:
         with open(self.filepath, "r") as file:
             lines = file.readlines()
+            file.close()
             lines.reverse()
             for line in lines:
                 if "VOD_" in line and "_CharacterIntro" in line:
@@ -131,11 +134,13 @@ class LogWatcher:
     def getMostRecentTimestamp(self) -> int:
         with open(self.filepath, "r") as file:
             recent_line = file.readlines()[-1]
+            file.close()
             return self.getTimestampFromLine(recent_line)
         
     def getAwakeningsFromLog(self):
         with open(self.filepath, "r") as file:
             lines = file.readlines()
+            file.close()
             for line in lines:
                 if "TD_" in line and "GTD_" not in line:
                     for match in re.findall("TD_[A-Za-z0-9]*", line):

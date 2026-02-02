@@ -25,15 +25,20 @@ class OSCommandProcessor(ClientCommandProcessor):
     ctx: "OSContext"
     def _cmd_get_game(self):
         """Prints the most recent game"""
-        data = LogWatcher(self.ctx.username).getLastGameInfo()
+        data = LogWatcher(self.ctx.slot_data["username"]).getLastGameInfo()
         result = f"Character: {data['Character']}\nTeam: {data['Team']}\nScore: {data['Score']}\nSets: {data['Sets']}\nStrikes: {data['Strikes']}\nPrimaries: {data['Primaries']}\nSecondaries: {data['Secondaries']}\nSpecials: {data['Specials']}\n"
         result += "Awakenings:\n"
         for awakening in data["Awakenings"]:
+            print(awakening)
             result += " - "+awakening+"\n"
         self.output(result)
     def _cmd_set_username(self, username):
         """Changes the set username, useful if you switch accounts or change usernames"""
-        pass
+        self.ctx.slot_data["username"] = username
+        self.ctx.send_msgs([{"cmd":"Set", "key":f"{self.ctx.slot}OmegaStrikers-username", "default":username, "want_replay":False, "operations":[{"operation":"default"},{"operation":"replace", "value":username}]}]) # pyright: ignore[reportUnusedCoroutine]
+    def _cmd_get_username(self):
+        """Prints the currently set username"""
+        self.output(self.ctx.slot_data["username"])
 
     
 class OSContext(CommonContext):
@@ -72,16 +77,24 @@ class OSContext(CommonContext):
     
     def on_package(self, cmd: str, args: dict):
         if cmd in {"Connected"}:
-            self.set_notify("username")
+            self.set_notify(f"{self.slot}OmegaStrikers-username")
+            self.set_notify(f"{self.slot}OmegaStrikers-progress")
+            self.set_notify(f"{self.slot}OmegaStrikers-awakenings")
             #Handle Slot Data
             for slot_data_key in list(args['slot_data'].keys()):
                 self.slot_data[slot_data_key] = args["slot_data"][slot_data_key]
-            #End Handle Slot Data
-            if self.slot != None and f"{self.player_names[self.slot]}-OmegaStrikers-username" in self.stored_data:
-                self.slot_data["username"] = self.stored_data[f"{self.player_names[self.slot]}-OmegaStrikers-username"]
+        if cmd in {"Retrieved"}:
+            if f"{self.slot}OmegaStrikers-username" in args["keys"]:
+                self.slot_data["username"] = args["keys"][f"{self.slot}OmegaStrikers-username"]
+            if f"{self.slot}OmegaStrikers-progress" in args["keys"]:
+                self.progress_data = args["keys"][f"{self.slot}OmegaStrikers-progress"]
+            if f"{self.slot}OmegaStrikers-awakenings" in args["keys"]:
+                self.awakenings_found = args["keys"][f"{self.slot}OmegaStrikers-awakenings"]
+        if cmd in {"SetReply"}:
+            print(args)
+            if f"{self.slot}OmegaStrikers-username" == args["key"]:
+                self.slot_data["username"] = args["value"]
         if cmd in {"RoomUpdate"}:
-            if self.slot != None and f"{self.player_names[self.slot]}-OmegaStrikers-username" in self.stored_data:
-                self.slot_data["username"] = self.stored_data[f"{self.player_names[self.slot]}-OmegaStrikers-username"]
             for item_name in args["checked_locations"]:
                 print(item_name)
 
@@ -124,6 +137,8 @@ async def game_watcher(ctx: OSContext):
             ctx.progress_data[char]["Sets"] += data["Sets"]
             ctx.progress_data[char]["Specials"] += data["Specials"]
             ctx.progress_data[char]["Strikes"] += data["Strikes"]
+            ctx.send_msgs([{"cmd":"Set", "key":f"{ctx.slot}OmegaStrikers-progress", "default":{}, "want_replay":False, "operations":[{"operation":"default"},{"operation":"replace", "value":ctx.progress_data}]}]) # pyright: ignore[reportUnusedCoroutine]        
+            ctx.send_msgs([{"cmd":"Set", "key":f"{ctx.slot}OmegaStrikers-awakenings", "default":[], "want_replay":False, "operations":[{"operation":"default"},{"operation":"replace", "value":ctx.awakenings_found}]}]) # pyright: ignore[reportUnusedCoroutine]        
         
         for char in ctx.progress_data.keys():
             check_names = []

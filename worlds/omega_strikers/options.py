@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from Options import Choice, PerGameCommonOptions, OptionSet, Toggle, Range
+from Options import Choice, PerGameCommonOptions, OptionSet, FreeText, Range
 from .data import characters
 
 
@@ -35,50 +35,76 @@ class Strikers(Range):
     range_end = 21
     default = 12
 
-class GoalsAssists(Range):
+
+class Wins(Range):
     """
-    The total number of goals and assists combined you need on a character to get goal+assist checks
+    The total number of games you need to win on a character to get a check. This number is cumulative.
     """
-    display_name = "GoalsAssists"
+    display_name = "Wins"
     range_start = 1
-    range_end = 13
+    range_end = 50
+    default = 2
+
+class Sets(Range):
+    """
+    The total number of sets you need to win on a character to get a check. This number is cumulative.
+    """
+    display_name = "Sets"
+    range_start = 1
+    range_end = 150
     default = 5
 
-class KOs(Range):
+class Scores(Range):
     """
-    The total number of KOs you need on a character to get KO checks
+    The total number of goals you need to score on a character to get a check. This number is cumulative.
     """
-    display_name = "KOs"
+    display_name = "Scores"
     range_start = 1
-    range_end = 20
-    default = 3
+    range_end = 650
+    default = 6
 
-class Saves(Range):
+class Strikes(Range):
     """
-    The total number of saves you need on a character to get save checks
+    The total number of strikes you need to perform on a character to get a check. This number is cumulative.
     """
-    display_name = "Saves"
+    display_name = "Strikes"
     range_start = 1
-    range_end = 200
+    range_end = 5000
+    default = 200
+
+class Primaries(Range):
+    """
+    The total number of primaries you need to perform on a character to get a check. This number is cumulative.
+    """
+    display_name = "Primaries"
+    range_start = 1
+    range_end = 1000
     default = 75
 
-class Redirects(Range):
+class Secondaries(Range):
     """
-    The total number of redirects you need on a character to get the redirect checks
+    The total number of secondaries you need to perform on a character to get a check. This number is cumulative.
     """
-    display_name = "Redirects"
+    display_name = "Secondaries"
     range_start = 1
-    range_end = 300
-    default = 120
+    range_end = 800
+    default = 50
 
-class Orbs(Range):
+class Specials(Range):
     """
-    The total number of orbs you need on a character to get the orb checks
+    The total number of specials you need to perform on a character to get a check. This number is cumulative.
     """
-    display_name = "Orbs"
+    display_name = "Specials"
     range_start = 1
-    range_end = 45
-    default = 25
+    range_end = 500
+    default = 15
+
+class Username(FreeText):
+    """
+    Your OS username, used for awakening checks
+    """
+    display_name = "Username"
+    default = ""
 
 class Whitelist(OptionSet):
     """
@@ -96,71 +122,18 @@ class Blacklist(OptionSet):
     default = {}
     valid_keys = [char for char in characters]
 
-class GoalsAssistsBlacklist(OptionSet):
-    """
-    All strikers you don't feel comfortable getting the Get X Goals+Assists check for
-    """
-    display_name = "Goals+Assists Blacklist"
-    default = {}
-    valid_keys = [char for char in characters]
-
-class SavesBlacklist(OptionSet):
-    """
-    All strikers you don't feel comfortable getting the Get X Saves check for
-    """
-    display_name = "Saves Blacklist"
-    default = {"Juliette",
-    "X",
-    "Zen",
-    "Octavia"}
-    valid_keys = [char for char in characters]
-
-
-
-class KOsBlacklist(OptionSet):
-    """
-    All strikers you don't feel comfortable getting the Get X KOs check for
-    """
-    display_name = "KOs Blacklist"
-    default = {
-    "Juno",
-    "Kai",
-    "Era",
-    "Octavia"}
-    valid_keys = [char for char in characters]
-
-class RedirectsBlacklist(OptionSet):
-    """
-    All strikers you don't feel comfortable getting the Get X Redirects check for
-    """
-    display_name = "Redirects Blacklist"
-    default = {}
-    valid_keys = [char for char in characters]
-
-
-
-class OrbsBlacklist(OptionSet):
-    """
-    All strikers you don't feel comfortable getting the Get X Orbs check for
-    """
-    display_name = "Orbs Blacklist"
-    default = {}
-    valid_keys = [char for char in characters]
-
 @dataclass
 class OSOptions(PerGameCommonOptions):
     game_mode: Goal
     lp_required: LPRequired
     strikers: Strikers
-    goals_assists: GoalsAssists
-    redirects: Redirects
-    saves: Saves
-    kos: KOs
-    orbs: Orbs
+    wins: Wins
+    sets: Sets
+    scores: Scores
+    strikes: Strikes
+    primaries: Primaries
+    secondaries: Secondaries
+    specials: Specials
+    username: Username
     whitelist: Whitelist
     blacklist: Blacklist
-    goals_assists_blacklist: GoalsAssistsBlacklist
-    saves_blacklist: SavesBlacklist
-    kos_blacklist: KOsBlacklist
-    redirects_blacklist: RedirectsBlacklist
-    orbs_blacklist: OrbsBlacklist

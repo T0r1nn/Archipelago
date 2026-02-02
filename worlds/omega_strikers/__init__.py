@@ -4,7 +4,7 @@ from .rules import set_rules
 from BaseClasses import Item, ItemClassification, Tutorial, MultiWorld, Region
 from .options import OSOptions
 from worlds.AutoWorld import World, WebWorld
-from typing import List, LiteralString, Any
+from typing import Any
 from .regions import create_regions
 from worlds.LauncherComponents import launch_subprocess, components, Component, Type
 from .data import characters
@@ -56,7 +56,7 @@ class OmegaStrikersWorld(World):
 
     def __init__(self, multiworld, player: int):
         super().__init__(multiworld, player)
-        self.striker_pool: List[str] = []
+        self.striker_pool: list[str] = []
 
     def generate_early(self) -> None:
         if len(self.options.whitelist.value) > self.options.strikers.value:
@@ -78,7 +78,7 @@ class OmegaStrikersWorld(World):
 
     def create_items(self) -> None:
         # Generate item pool
-        itempool: List = []
+        itempool: list = []
 
         for name in self.striker_pool:
             if name != self.initial_striker:
@@ -110,12 +110,15 @@ class OmegaStrikersWorld(World):
 
     def fill_slot_data(self):
         slot_data = {
-            "Required GoalsAssists":self.options.goals_assists.value,
+            "Wins":self.options.wins.value,
             "Required LP":self.required_lp_count,
-            "Required KOs":self.options.kos.value,
-            "Required Orbs":self.options.orbs.value,
-            "Required Saves":self.options.saves.value,
-            "Required Redirects":self.options.redirects.value
+            "Sets":self.options.sets.value,
+            "Goals":self.options.scores.value,
+            "Strikes":self.options.strikes.value,
+            "Primaries":self.options.primaries.value,
+            "Secondaries":self.options.secondaries.value,
+            "Specials":self.options.specials.value,
+            "Username":self.options.username.value
         }
 
         return slot_data
