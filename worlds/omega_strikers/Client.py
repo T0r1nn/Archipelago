@@ -35,7 +35,7 @@ class OSCommandProcessor(ClientCommandProcessor):
     def _cmd_set_username(self, username):
         """Changes the set username, useful if you switch accounts or change usernames"""
         self.ctx.slot_data["username"] = username
-        self.ctx.send_msgs([{"cmd":"Set", "key":f"{self.ctx.slot}OmegaStrikers-username", "default":username, "want_replay":True, "operations":[{"operation":"replace", "value":username}]}]) # pyright: ignore[reportUnusedCoroutine]
+        self.ctx.update_username = True
     def _cmd_get_username(self):
         """Prints the currently set username"""
         self.output(self.ctx.slot_data["username"])
@@ -49,6 +49,7 @@ class OSContext(CommonContext):
     slot_data = {}
     progress_data:dict[str, CharProgress] = {}
     awakenings_found:list[str] = []
+    update_username = False
 
     def __init__(self, server_address: str | None = None, password: str | None = None) -> None:
         super(OSContext, self).__init__(server_address, password)
@@ -102,6 +103,7 @@ class OSContext(CommonContext):
                 print(item_name)
 
 async def game_watcher(ctx: OSContext):
+    print("Started")
     watcher = LogWatcher(ctx.slot_data["username"])
     stat_to_check_name_map = {
         "Goals": "Get X Goals",
@@ -115,6 +117,10 @@ async def game_watcher(ctx: OSContext):
     while not ctx.exit_event.is_set():
         if ctx.username != watcher.username:
             watcher.username = ctx.username
+        if ctx.update_username:
+            print("Updating username")
+            await ctx.send_msgs([{"cmd":"Set", "key":f"{ctx.slot}OmegaStrikers-username", "default":ctx.slot_data["Username"], "want_replay":True, "operations":[{"operation":"replace", "value":ctx.slot_data["Username"]}]}])
+            ctx.update_username = False
         if ctx.syncing == True:
             sync_msg = [{'cmd': 'Sync'}]
             if ctx.locations_checked:
@@ -140,8 +146,8 @@ async def game_watcher(ctx: OSContext):
             ctx.progress_data[char]["Sets"] += data["Sets"]
             ctx.progress_data[char]["Specials"] += data["Specials"]
             ctx.progress_data[char]["Strikes"] += data["Strikes"]
-            ctx.send_msgs([{"cmd":"Set", "key":f"{ctx.slot}OmegaStrikers-progress", "default":{}, "want_replay":False, "operations":[{"operation":"default"},{"operation":"replace", "value":ctx.progress_data}]}]) # pyright: ignore[reportUnusedCoroutine]        
-            ctx.send_msgs([{"cmd":"Set", "key":f"{ctx.slot}OmegaStrikers-awakenings", "default":[], "want_replay":False, "operations":[{"operation":"default"},{"operation":"replace", "value":ctx.awakenings_found}]}]) # pyright: ignore[reportUnusedCoroutine]        
+            await ctx.send_msgs([{"cmd":"Set", "key":f"{ctx.slot}OmegaStrikers-progress", "default":{}, "want_replay":True, "operations":[{"operation":"replace", "value":ctx.progress_data}]}])        
+            await ctx.send_msgs([{"cmd":"Set", "key":f"{ctx.slot}OmegaStrikers-awakenings", "default":[], "want_replay":True, "operations":[{"operation":"replace", "value":ctx.awakenings_found}]}])        
         
         for char in ctx.progress_data.keys():
             check_names = []
