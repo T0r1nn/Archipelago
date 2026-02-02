@@ -25,7 +25,7 @@ class OSCommandProcessor(ClientCommandProcessor):
     ctx: "OSContext"
     def _cmd_get_game(self):
         """Prints the most recent game"""
-        data = LogWatcher(self.ctx.slot_data["username"]).getLastGameInfo()
+        data = LogWatcher(self.ctx.slot_data["Username"]).getLastGameInfo()
         result = f"Character: {data['Character']}\nTeam: {data['Team']}\nScore: {data['Score']}\nSets: {data['Sets']}\nStrikes: {data['Strikes']}\nPrimaries: {data['Primaries']}\nSecondaries: {data['Secondaries']}\nSpecials: {data['Specials']}\n"
         result += "Awakenings:\n"
         for awakening in data["Awakenings"]:
@@ -34,11 +34,11 @@ class OSCommandProcessor(ClientCommandProcessor):
         self.output(result)
     def _cmd_set_username(self, username):
         """Changes the set username, useful if you switch accounts or change usernames"""
-        self.ctx.slot_data["username"] = username
+        self.ctx.slot_data["Username"] = username
         self.ctx.update_username = True
     def _cmd_get_username(self):
         """Prints the currently set username"""
-        self.output(self.ctx.slot_data["username"])
+        self.output(self.ctx.slot_data["Username"])
 
     
 class OSContext(CommonContext):
@@ -87,7 +87,7 @@ class OSContext(CommonContext):
         if cmd in {"Retrieved"}:
             if f"{self.slot}OmegaStrikers-username" in args["keys"]:
                 if args["keys"][f"{self.slot}OmegaStrikers-username"] != None:
-                    self.slot_data["username"] = args["keys"][f"{self.slot}OmegaStrikers-username"]
+                    self.slot_data["Username"] = args["keys"][f"{self.slot}OmegaStrikers-username"]
             if f"{self.slot}OmegaStrikers-progress" in args["keys"]:
                 if args["keys"][f"{self.slot}OmegaStrikers-progress"] != None:
                     self.progress_data = args["keys"][f"{self.slot}OmegaStrikers-progress"]
@@ -97,14 +97,17 @@ class OSContext(CommonContext):
         if cmd in {"SetReply"}:
             print(args)
             if f"{self.slot}OmegaStrikers-username" == args["key"]:
-                self.slot_data["username"] = args["value"]
+                self.slot_data["Username"] = args["value"]
         if cmd in {"RoomUpdate"}:
             for item_name in args["checked_locations"]:
                 print(item_name)
 
 async def game_watcher(ctx: OSContext):
     print("Started")
-    watcher = LogWatcher(ctx.slot_data["username"])
+    while not "Username" in ctx.slot_data:
+        await asyncio.sleep(0.1)
+    watcher = LogWatcher(ctx.slot_data["Username"])
+
     stat_to_check_name_map = {
         "Goals": "Get X Goals",
         "Strikes": "Strike X Times",
@@ -115,8 +118,6 @@ async def game_watcher(ctx: OSContext):
         "Sets": "Win X Sets"
     }
     while not ctx.exit_event.is_set():
-        if ctx.username != watcher.username:
-            watcher.username = ctx.username
         if ctx.update_username:
             print("Updating username")
             await ctx.send_msgs([{"cmd":"Set", "key":f"{ctx.slot}OmegaStrikers-username", "default":ctx.slot_data["Username"], "want_replay":True, "operations":[{"operation":"replace", "value":ctx.slot_data["Username"]}]}])
