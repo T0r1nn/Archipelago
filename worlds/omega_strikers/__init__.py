@@ -87,8 +87,9 @@ class OmegaStrikersWorld(World):
         total_locations = len(self.multiworld.get_unfilled_locations(self.player))
 
         # Fill remaining items with randomly generated junk
-        while len(itempool) < total_locations:
-            itempool.append(self.get_filler_item_name())
+        if self.options.game_mode.value == 1:
+            while len(itempool) < total_locations:
+                itempool.append(self.get_filler_item_name())
 
         # Convert itempool into real items
         itempool = list(map(lambda item_name: self.create_item(item_name), itempool))
@@ -118,7 +119,9 @@ class OmegaStrikersWorld(World):
             "Primaries":self.options.primaries.value,
             "Secondaries":self.options.secondaries.value,
             "Specials":self.options.specials.value,
-            "Username":self.options.username.value
+            "Username":self.options.username.value,
+            "Striker Count":self.options.strikers.value,
+            "Goal Mode":self.options.game_mode.value
         }
 
         return slot_data

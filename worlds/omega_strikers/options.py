@@ -5,7 +5,7 @@ from .data import characters
 
 class Goal(Choice):
     """
-    Win All: Win once on every striker(Not yet implemented)
+    Win All: Win once on every striker
 
     McGuffin: Receive a set amount of LP
     """

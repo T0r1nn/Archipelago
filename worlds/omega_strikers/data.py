@@ -134,3 +134,22 @@ in_rotation_trainings = {
     "TD_HitStaggerEnemyCooldownReduction": "Pummelers",
     "TD_HitEnemyDrainThem": "Siphoning Wand"
 }
+
+training_categories = {
+    "Size":["Built Different", "Rampage", "Demolitionist", "Powerhouse Pauldrons"],
+    "Power":["Built Different", "Bulk Up", "Specialized Training", "Prize Fighter", "Heavy Impact", "Glass Cannon", "One-Two-Punch", "Deadeye",
+             "Missile Propulsion", "Explosive Entrance", "Super Surge", "Powerhouse Pauldrons", "Berserker", "Pummelers"],
+    "Speed":[],
+    "Stagger":[],
+    "Creation":[],
+    "Range":[],
+    "Buff":[],
+    "CDR":[],
+    "Damage":[],
+    "Corespeed":[],
+    "Dash":[],
+    "QS":[],
+    "Healing":[],
+    "Goalie":["Powerhouse Pauldrons","Eject Button","Momentum Boots","Strike Shot"],
+    "Forward":["Slick Kicks", "Magnetized Soles", "Pummelers", "Siphoning Wand", "Vicious Vambrace"]
+}
