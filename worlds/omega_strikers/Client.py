@@ -153,7 +153,15 @@ async def game_watcher(ctx: OSContext):
             await ctx.send_msgs(sync_msg)
             ctx.syncing = False
         sending = []
-        victory = lp_received >= ctx.slot_data["Required LP"]
+        victory = False
+        if ctx.slot_data["Goal Mode"] == 1:
+            victory = lp_received >= ctx.slot_data["Required LP"]
+        else:
+            wins = 0
+            for char in ctx.progress_data.values():
+                if char["Wins"] >= 1:
+                    wins += 1
+            victory = wins >= ctx.slot_data["Striker Count"]
         
         if watcher.checkHasPlayedGame():
             data = watcher.getLastGameInfo()
