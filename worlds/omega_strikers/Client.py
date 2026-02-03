@@ -175,7 +175,10 @@ async def game_watcher(ctx: OSContext):
                     ctx.progress_data[char] = {"Wins":0, "Sets": 0, "Goals": 0, "Strikes": 0, "Primaries": 0, "Secondaries": 0, "Specials": 0}
                 if data["Won"]:
                     ctx.progress_data[char]["Wins"] += 1
-                ctx.progress_data[char]["Goals"] += data["Score"]
+                if ctx.slot_data["Score Mode"] == 0:
+                    ctx.progress_data[char]["Goals"] += data["Score"]
+                else:
+                    ctx.progress_data[char]["Goals"] += data["TeamScore"]
                 ctx.progress_data[char]["Primaries"] += data["Primaries"]
                 ctx.progress_data[char]["Secondaries"] += data["Secondaries"]
                 ctx.progress_data[char]["Sets"] += data["Sets"]

@@ -1,7 +1,7 @@
 from BaseClasses import MultiWorld, Region, Location
 from .locations import locations, check_valid, categories
 from .options import OSOptions
-from .data import in_rotation_trainings
+from .data import in_rotation_trainings, training_categories
 from typing import TYPE_CHECKING, List
 
 if TYPE_CHECKING:
@@ -27,7 +27,8 @@ def create_regions(options: OSOptions, world: "OmegaStrikersWorld"):
 
     if options.awakening_checks.value:
         for value in in_rotation_trainings.values():
-            add_location(player, f"Awakening - {value}", awakenings)
+            if (options.goalie_gear.value == 1 or value not in training_categories["Goalie"]) and (options.forward_gear.value == 1 or value not in training_categories["Forward"]):
+                add_location(player, f"Awakening - {value}", awakenings)
 
     if options.game_mode.value == 1:
         game.connect(victory,

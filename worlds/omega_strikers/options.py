@@ -114,6 +114,30 @@ class AwakeningChecks(DefaultOnToggle):
     """
     display_name = "Awakening Checks"
 
+class EnableGoalieGear(DefaultOnToggle):
+    """
+    Whether or not goalie gear should be included in awakening checks
+    """
+    display_name = "Enable Goalie Gear"
+
+class EnableForwardGear(DefaultOnToggle):
+    """
+    Whether or not forward gear should be included in awakening checks
+    """
+    display_name = "Enable Forward Gear"
+
+class ScoreMode(Choice):
+    """
+    Decides which scores count towards the scores check
+
+    solo - Only your goals count
+    team - Any goals by your team count
+    """
+    display_name = "Score Mode"
+    option_solo = 0
+    option_team = 1
+    default = 0
+
 class Whitelist(OptionSet):
     """
     All strikers that can be chosen from to be checks in the multiworld. If empty, counts as all. If less than the desired number of strikers, additional strikers will be chosen at random.
@@ -144,5 +168,8 @@ class OSOptions(PerGameCommonOptions):
     specials: Specials
     username: Username
     awakening_checks: AwakeningChecks
+    goalie_gear: EnableGoalieGear
+    forward_gear: EnableForwardGear
+    score_mode: ScoreMode
     whitelist: Whitelist
     blacklist: Blacklist

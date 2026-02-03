@@ -29,6 +29,7 @@ Notes:
 class GameInfo(TypedDict):
     Character: str
     Team: str
+    TeamScore: int
     Score: int
     Sets: int
     Strikes: int
@@ -58,7 +59,7 @@ class LogWatcher:
             last_char = ""
             last_score = ""
             victor = ""
-            stats_dict: GameInfo = {"Character": character, "Team": "", "Score": 0, "Sets": 0, "Strikes": 0, "Primaries": 0, "Secondaries": 0, "Specials": 0, "Awakenings": [], "Won": False}
+            stats_dict: GameInfo = {"Character": character, "Team": "", "Score": 0, "TeamScore":0, "Sets": 0, "Strikes": 0, "Primaries": 0, "Secondaries": 0, "Specials": 0, "Awakenings": [], "Won": False}
             sets = {"TeamOne": 0, "TeamTwo": 0}
             lines = file.readlines()
             file.close()
@@ -72,6 +73,8 @@ class LogWatcher:
                     break
                 if "TeamTwo's NumPointsThisSet changed from" in line and " to 0" not in line:
                     last_score = "TeamTwo"
+                    if "TeamTwo" == stats_dict["Team"]:
+                        stats_dict["TeamScore"] += 1
                     if last_char != "":
                         if last_char == character and last_score == stats_dict["Team"]:
                             stats_dict["Score"] += 1
@@ -81,6 +84,8 @@ class LogWatcher:
                     sets["TeamTwo"] += 1
                 if "TeamOne's NumPointsThisSet changed from" in line and " to 0" not in line:
                     last_score = "TeamOne"
+                    if "TeamOne" == stats_dict["Team"]:
+                        stats_dict["TeamScore"] += 1
                     if last_char != "":
                         if last_char == character and last_score == stats_dict["Team"]:
                             stats_dict["Score"] += 1
