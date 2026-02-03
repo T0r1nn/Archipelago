@@ -121,7 +121,8 @@ class OmegaStrikersWorld(World):
             "Specials":self.options.specials.value,
             "Username":self.options.username.value,
             "Striker Count":self.options.strikers.value,
-            "Goal Mode":self.options.game_mode.value
+            "Goal Mode":self.options.game_mode.value,
+            "AwakeningsEnabled":self.options.awakening_checks.value
         }
 
         return slot_data

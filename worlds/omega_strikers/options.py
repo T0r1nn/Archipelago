@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from Options import Choice, PerGameCommonOptions, OptionSet, FreeText, Range
+from Options import Choice, PerGameCommonOptions, OptionSet, FreeText, Range, DefaultOnToggle
 from .data import characters
 
 
@@ -106,6 +106,14 @@ class Username(FreeText):
     display_name = "Username"
     default = ""
 
+class AwakeningChecks(DefaultOnToggle):
+    """
+    Adds the first time you finish a game with each awakening as a check
+    This is not by character, so you don't need to play every awakening on each character
+    Goalie and forward gear count
+    """
+    display_name = "Awakening Checks"
+
 class Whitelist(OptionSet):
     """
     All strikers that can be chosen from to be checks in the multiworld. If empty, counts as all. If less than the desired number of strikers, additional strikers will be chosen at random.
@@ -135,5 +143,6 @@ class OSOptions(PerGameCommonOptions):
     secondaries: Secondaries
     specials: Specials
     username: Username
+    awakening_checks: AwakeningChecks
     whitelist: Whitelist
     blacklist: Blacklist
