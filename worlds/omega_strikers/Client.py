@@ -2,7 +2,7 @@ from CommonClient import CommonContext, ClientCommandProcessor, server_loop, gui
 from MultiServer import mark_raw, NetworkItem
 import Utils
 import asyncio
-from typing import TypedDict
+from typing import TypedDict, Any
 from .log_watch import LogWatcher
 from .items import get_default_item_map
 from .locations import get_default_location_map
@@ -147,9 +147,9 @@ async def game_watcher(ctx: OSContext):
             await ctx.send_msgs([{"cmd":"Set", "key":f"{ctx.slot}OmegaStrikers-username", "default":ctx.slot_data["Username"], "want_replay":True, "operations":[{"operation":"replace", "value":ctx.slot_data["Username"]}]}])
             ctx.update_username = False
         if ctx.syncing == True:
-            sync_msg = [{'cmd': 'Sync'}]
+            sync_msg:list[dict[str, Any]] = [{'cmd': 'Sync'}]
             if ctx.locations_checked:
-                sync_msg.append({"cmd": "LocationChecks", "locations": list(ctx.locations_checked)}) # type: ignore
+                sync_msg.append({"cmd": "LocationChecks", "locations": list(ctx.locations_checked)})
             await ctx.send_msgs(sync_msg)
             ctx.syncing = False
         sending = []
@@ -201,7 +201,7 @@ async def game_watcher(ctx: OSContext):
                 sending.append(ctx.location_id_map[f"{awakening}"])
 
 
-        ctx.locations_checked = sending # type: ignore
+        ctx.locations_checked = set(sending)
         message = [{"cmd": 'LocationChecks', "locations": sending}]
         await ctx.send_msgs(message)
         if not ctx.finished_game and victory:

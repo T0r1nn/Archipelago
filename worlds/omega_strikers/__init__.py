@@ -35,7 +35,7 @@ class OmegaStrikersWorld(World):
     """
     game = f"Omega Strikers"
     options_dataclass = OSOptions
-    options: OSOptions # type: ignore
+    options: OSOptions # pyright: ignore[reportIncompatibleVariableOverride]
     topology_present = False
 
     item_name_to_id = get_default_item_map(None)
