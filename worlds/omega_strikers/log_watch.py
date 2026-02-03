@@ -67,6 +67,9 @@ class LogWatcher:
                 if "NewTeam = EAssignedTeam::" in line:
                     stats_dict["Team"] = line.split("NewTeam = EAssignedTeam::")[1].strip()
                     break
+            for line in lines:
+                if "NewTeam = EAssignedTeam::" in line:
+                    break
                 if "TeamTwo's NumPointsThisSet changed from" in line and " to 0" not in line:
                     last_score = "TeamTwo"
                     if last_char != "":
@@ -101,7 +104,7 @@ class LogWatcher:
                 if "VOD_" in line and "_GoalScore" in line:
                     name = line.split("VOD_")[1].split("_GoalScore")[0]
                     if last_score != "":
-                        if last_char == character and last_score == stats_dict["Team"]:
+                        if name == character and last_score == stats_dict["Team"]:
                             stats_dict["Score"] += 1
                         last_score = ""
                         last_char = ""
@@ -118,8 +121,8 @@ class LogWatcher:
     def getLastCharPlayed(self) -> str:
         with open(self.filepath, "r") as file:
             lines = file.readlines()
-            file.close()
             lines.reverse()
+            file.close()
             for line in lines:
                 if "VOD_" in line and "_CharacterIntro" in line:
                     return line.split("VOD_")[1].split("_CharacterIntro")[0]

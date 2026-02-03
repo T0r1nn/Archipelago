@@ -25,8 +25,9 @@ def create_regions(options: OSOptions, world: "OmegaStrikersWorld"):
 
     game.connect(awakenings)
 
-    for value in in_rotation_trainings.values():
-        add_location(player, f"Awakening - {value}", awakenings)
+    if options.awakening_checks.value:
+        for value in in_rotation_trainings.values():
+            add_location(player, f"Awakening - {value}", awakenings)
 
     if options.game_mode.value == 1:
         game.connect(victory,

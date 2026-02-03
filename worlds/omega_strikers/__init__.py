@@ -118,7 +118,8 @@ class OmegaStrikersWorld(World):
             "Primaries":self.options.primaries.value,
             "Secondaries":self.options.secondaries.value,
             "Specials":self.options.specials.value,
-            "Username":self.options.username.value
+            "Username":self.options.username.value,
+            "AwakeningsEnabled":self.options.awakening_checks.value
         }
 
         return slot_data
