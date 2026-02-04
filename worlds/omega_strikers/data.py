@@ -135,21 +135,91 @@ in_rotation_trainings = {
     "TD_HitEnemyDrainThem": "Siphoning Wand"
 }
 
+
+training_tags = {
+	"Built Different": ["Size", "Impact"],
+	"Rampage": ["Size+Barrier"],
+	"Demolitionist": ["Size", "CDR+Barrier"],
+	"Bulk Up": ["Stagger", "Power"],
+	"Peak Performance": ["Stagger", "Speed"],
+	"Monumentalist": ["Creation"],
+	"Timeless Creator": ["Creation"],
+	"Siege Machine": ["Creation", "Projectile"],
+	"Cast to Last": ["Buff", "Creation"],
+	"Extra Special": ["CDR+Special"],
+	"Specialized Training": ["Power+Special"],
+	"Twin Drive": ["CDR+Secondary"],
+	"Primetime": ["CDR+Primary"],
+	"Hot Shot": ["CDR+Corespeed"],
+	"Among Titans": ["Speed+!Size"],
+	"Team Player": ["Corespeed"],
+	"Orb Dancer": ["Speed+Orb"],
+	"Prize Fighter": ["Power"],
+	"Stinger": ["Damage"],
+	"Heavy Impact": ["Impact+Power", "CDR+Multihit"],
+	"Glass Cannon": ["Speed", "Power"],
+	"One-Two-Punch": ["Power"],
+	"Deadeye": ["Power+Range"],
+	"Missile Propulsion": ["Projectile"],
+	"Aerials": ["Dash"],
+	"Explosive Entrance": ["Dash"],
+	"Super Surge": ["Dash"],
+	"Quick Strikes": ["Strike"],
+	"Stacks on Stacks": ["Speed"],
+	"Reptile Remedy": ["Stagger", "Healing"],
+	"Tempo Swing": ["Healing", "Damage"],
+	"Vicious Vambrace": ["Healing"],
+    "Powerhouse Pauldrons": ["Size", "Power"],
+    "Eject Button": ["Dash"],
+    "Berserker": ["Power", "CDR"],
+    "Magnetized Soles": ["Speed"],
+    "Inner Focus": ["CDR"],
+    "Momentum Boots": ["Speed"],
+    "Slick Kicks": ["Speed"],
+    "Strike Shot": [],
+    "Omega Infused Accelerator": ["Speed"],
+    "Pummelers": ["Power", "Speed"],
+    "Siphoning Wand": ["Damage"]
+}
+
+character_negative_tags = {# im not gonna manually do this :(
+    "Juliette": ["Projectile", "Range", "Creation", "Damage", "Buff"],
+    "Estelle": ["Creation", "Damage", "Buff"],
+    "Dubu": ["Damage", "Dash"],
+    "Luna": ["Creation", "Buff", "Impact", "Multihit"],
+    "Juno": [],
+    "Asher": [],
+    "Kai": [],
+    "Era": [],
+    "X": [],
+    "Aimi": [],
+    "Finii": [],
+    "Zen": [],
+    "Octavia": [],
+    "Vyce": [],
+    "Mako": [],
+    "Rune": [],
+    "Drek'ar": [],
+    "Atlas": [],
+    "Nao": [],
+    "Rasmus": [],
+    "Kazan": []
+}
+
+for character in characters:
+    tags = character_negative_tags[character]
+    works = []
+    for training in in_rotation_trainings.values():
+        t_tags = training_tags[training]
+        
+        for tag in t_tags:
+            parts = tag.split("+")
+            for part in parts:
+                if part not in tags and training not in works:
+                    works.append(training)
+    print(character, works)
+
 training_categories = {
-    "Size":["Built Different", "Rampage", "Demolitionist", "Powerhouse Pauldrons"],
-    "Power":["Built Different", "Bulk Up", "Specialized Training", "Prize Fighter", "Heavy Impact", "Glass Cannon", "One-Two-Punch", "Deadeye",
-             "Missile Propulsion", "Explosive Entrance", "Super Surge", "Powerhouse Pauldrons", "Berserker", "Pummelers"],
-    "Speed":[],
-    "Stagger":[],
-    "Creation":[],
-    "Range":[],
-    "Buff":[],
-    "CDR":[],
-    "Damage":[],
-    "Corespeed":[],
-    "Dash":[],
-    "QS":[],
-    "Healing":[],
     "Goalie":["Powerhouse Pauldrons","Eject Button","Momentum Boots","Strike Shot"],
     "Forward":["Slick Kicks", "Magnetized Soles", "Pummelers", "Siphoning Wand", "Vicious Vambrace"]
 }
