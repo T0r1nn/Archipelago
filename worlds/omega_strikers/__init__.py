@@ -7,7 +7,7 @@ from worlds.AutoWorld import World, WebWorld
 from typing import Any
 from .regions import create_regions
 from worlds.LauncherComponents import launch_subprocess, components, Component, Type
-from .data import characters
+from .data import characters, in_rotation_trainings
 
 def run_client(*args: Any):
     from .Client import main
@@ -59,6 +59,12 @@ class OmegaStrikersWorld(World):
         self.striker_pool: list[str] = []
 
     def generate_early(self) -> None:
+        print(self.options.strikers.value*7 + len(in_rotation_trainings.values()) * self.options.awakening_checks.value - ((1-self.options.forward_gear.value) * 5 + (1-self.options.goalie_gear.value) * 4) * self.options.awakening_checks.value)
+        print("Options:")
+        print(f"Striker count: {self.options.strikers.value}")
+        print(f"Awakening checks enabled: {self.options.awakening_checks.value}")
+        print(f"Forward gear enabled: {self.options.forward_gear.value}")
+        print(f"Goalie gear enabled: {self.options.goalie_gear.value}")
         if len(self.options.whitelist.value) > self.options.strikers.value:
             self.striker_pool = self.random.sample([item for item in self.options.whitelist.value], k=self.options.strikers.value)
         else:
@@ -90,6 +96,9 @@ class OmegaStrikersWorld(World):
         if self.options.game_mode.value == 1:
             while len(itempool) < total_locations:
                 itempool.append(self.get_filler_item_name())
+        else:
+            while len(itempool) < total_locations:
+                itempool.append("Nothing")
 
         # Convert itempool into real items
         itempool = list(map(lambda item_name: self.create_item(item_name), itempool))

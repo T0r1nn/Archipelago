@@ -206,18 +206,18 @@ character_negative_tags = {# im not gonna manually do this :(
     "Kazan": []
 }
 
-for character in characters:
-    tags = character_negative_tags[character]
-    works = []
-    for training in in_rotation_trainings.values():
-        t_tags = training_tags[training]
+# for character in characters:
+#     tags = character_negative_tags[character]
+#     works = []
+#     for training in in_rotation_trainings.values():
+#         t_tags = training_tags[training]
         
-        for tag in t_tags:
-            parts = tag.split("+")
-            for part in parts:
-                if part not in tags and training not in works:
-                    works.append(training)
-    print(character, works)
+#         for tag in t_tags:
+#             parts = tag.split("+")
+#             for part in parts:
+#                 if part not in tags and training not in works:
+#                     works.append(training)
+#     print(character, works)
 
 training_categories = {
     "Goalie":["Powerhouse Pauldrons","Eject Button","Momentum Boots","Strike Shot"],

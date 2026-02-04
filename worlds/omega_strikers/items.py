@@ -49,5 +49,6 @@ def generate_items(world: "OmegaStrikersWorld|None") -> Tuple[List[OSItem], Slot
 
     items = [OSItem(slot_item_data, char) for char in characters]
     OSItem(slot_item_data, "LP", ItemClassification.progression)
+    OSItem(slot_item_data, "Nothing", ItemClassification.filler)
 
     return items, slot_item_data

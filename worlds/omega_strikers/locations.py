@@ -50,7 +50,10 @@ def generate_locations(world: "OmegaStrikersWorld") -> Dict[str, int]:
     return location_result
 
 def check_location_amount(world: "OmegaStrikersWorld") -> int:
-    count = len(in_rotation_trainings.keys())
+    count = len(in_rotation_trainings.keys()) * world.options.awakening_checks.value
+    if world.options.awakening_checks.value == 1:
+        count -= 4 * (1-world.options.goalie_gear.value)
+        count -= 5 * (1-world.options.forward_gear.value)
     for char in world.striker_pool:
         for cat in categories:
             if check_valid(char, cat, world):
