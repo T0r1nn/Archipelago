@@ -144,7 +144,19 @@ class LogWatcher:
             recent_line = file.readlines()[-1]
             file.close()
             return self.getTimestampFromLine(recent_line)
-        
+    def getHasDied(self) -> bool:
+        with open(self.filepath, "r") as file:
+            lines = file.readlines()
+            file.close()
+            lines.reverse()
+            for line in lines:
+                if(self.getTimestampFromLine(line) < self.most_recent_timestamp):
+                    break
+                if "Despawn_Multicast_Implementation" in line:
+                    player = line.split("Player '")[1].split("')")[0]
+                    if player == self.username:
+                        return True
+        return False
     def getAwakeningsFromLog(self):
         with open(self.filepath, "r") as file:
             lines = file.readlines()

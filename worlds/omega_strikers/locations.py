@@ -11,7 +11,7 @@ class OmegaStrikersLocation(Location):
     game: str = f"Omega Strikers"
 
 
-os_locations_start_id = 0
+os_locations_start_id = 1
 max_id = os_locations_start_id
 categories = [
     "Get X Goals",

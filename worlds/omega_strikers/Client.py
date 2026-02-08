@@ -45,7 +45,7 @@ class OSCommandProcessor(ClientCommandProcessor):
         result = "Unlocked Characters: \n"
         for item in received_items:
             chr = self.ctx.item_id_map[item.item]
-            if chr != "LP":
+            if chr != "LP" and chr != "Nothing":
                 result += f" - {self.ctx.item_id_map[item.item]}\n"
         self.output(result)
     def _cmd_progress(self):
@@ -57,7 +57,12 @@ class OSCommandProcessor(ClientCommandProcessor):
             if chr == "LP":
                 lp_count += 1
         self.output(f"{lp_count}/{self.ctx.slot_data['Required LP']}")
-        
+    def _cmd_send_awake_checks(self):
+        """Sends awakening checks"""
+        data = LogWatcher(self.ctx.slot_data["Username"]).getLastGameInfo()
+        for awakening in data["Awakenings"]:
+            self.ctx.awakenings_found.append(f"Awakening - {awakening}")
+        self.output("Sent!")
 
 
     
@@ -139,13 +144,17 @@ async def game_watcher(ctx: OSContext):
         lp_received = 0
         for item in ctx.items_received:
             chr = ctx.item_id_map[item.item]
-            if chr != "LP":
+            if chr != "LP" and chr != "Nothing":
                 ctx.received_characters.append(ctx.item_id_map[item.item])
             else:
                 lp_received += 1
         if ctx.update_username:
             await ctx.send_msgs([{"cmd":"Set", "key":f"{ctx.slot}OmegaStrikers-username", "default":ctx.slot_data["Username"], "want_replay":True, "operations":[{"operation":"replace", "value":ctx.slot_data["Username"]}]}])
             ctx.update_username = False
+        if ctx.slot_data["Username"] != watcher.username:
+            old_timestamp = watcher.most_recent_timestamp
+            watcher = LogWatcher(ctx.slot_data["Username"])
+            watcher.most_recent_timestamp = old_timestamp
         if ctx.syncing == True:
             sync_msg:list[dict[str, Any]] = [{'cmd': 'Sync'}]
             if ctx.locations_checked:
@@ -162,15 +171,16 @@ async def game_watcher(ctx: OSContext):
                 if char["Wins"] >= 1:
                     wins += 1
             victory = wins >= ctx.slot_data["Striker Count"]
-        
+
+        print(ctx.awakenings_found)
+
         if watcher.checkHasPlayedGame():
             data = watcher.getLastGameInfo()
             char = data["Character"]
             if char in ctx.received_characters:
-                if ctx.slot_data["AwakeningsEnabled"]:
-                    for awakening in data["Awakenings"]:
-                        if awakening not in ctx.awakenings_found:
-                            ctx.awakenings_found.append(f"Awakening - {awakening}")
+                for awakening in data["Awakenings"]:
+                    if awakening not in ctx.awakenings_found:
+                        ctx.awakenings_found.append(f"Awakening - {awakening}")
                 if char not in ctx.progress_data.keys():
                     ctx.progress_data[char] = {"Wins":0, "Sets": 0, "Goals": 0, "Strikes": 0, "Primaries": 0, "Secondaries": 0, "Specials": 0}
                 if data["Won"]:
