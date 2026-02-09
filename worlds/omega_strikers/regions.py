@@ -3,6 +3,7 @@ from .locations import locations, check_valid, categories
 from .options import OSOptions
 from .data import in_rotation_trainings, training_categories
 from typing import TYPE_CHECKING, List
+from rule_builder.rules import *
 
 if TYPE_CHECKING:
     from . import OmegaStrikersWorld
@@ -31,18 +32,16 @@ def create_regions(options: OSOptions, world: "OmegaStrikersWorld"):
                 add_location(player, f"Awakening - {value}", awakenings)
 
     if options.game_mode.value == 1:
-        game.connect(victory,
-                                 rule=lambda state: (state.has("LP", player,
-                                                               count=world.required_lp_count)))
+        world.set_rule(game.connect(victory), Has("LP", world.required_lp_count))
     else:
-        game.connect(victory, rule=lambda state: (state.has_all(world.striker_pool, player)))
+        world.set_rule(game.connect(victory), HasAllCounts({striker: 1 for striker in world.striker_pool}))
 
     menu.connect(game, rule=lambda state: True)
 
     for character in world.striker_pool:
         char_regions.append(Region(character, player, multiworld))
         multiworld.regions.append(char_regions[-1])
-        game.connect(char_regions[-1], rule = lambda state, char=character: (state.has(char, player)))
+        world.set_rule(game.connect(char_regions[-1]), Has(character))
         for cat in categories:
             if(check_valid(character, cat, world)):
                 add_location(player, f"{character} - {cat}", multiworld.get_region(character, world.player))
