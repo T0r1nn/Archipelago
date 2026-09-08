@@ -154,6 +154,16 @@ class Blacklist(OptionSet):
     default = {}
     valid_keys = [char for char in characters]
 
+class Deathlink(Choice):
+    """
+    Enables death link
+    Does nothing if you receive a deathlink, but will send a deathlink every time you get KO'd
+    """
+    display_name = "Death Link"
+    option_enabled = 1
+    option_disabled = 0
+    default = 0
+
 @dataclass
 class OSOptions(PerGameCommonOptions):
     game_mode: Goal
@@ -173,3 +183,4 @@ class OSOptions(PerGameCommonOptions):
     score_mode: ScoreMode
     whitelist: Whitelist
     blacklist: Blacklist
+    death_link: Deathlink

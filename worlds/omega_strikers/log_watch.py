@@ -44,6 +44,7 @@ class LogWatcher:
         self.filepath = os.path.expandvars("%localappdata%/OmegaStrikers/Saved/Logs/OmegaStrikers.log")
         self.username = username
         self.most_recent_timestamp = self.getMostRecentTimestamp()
+        self.last_deathlink_timestamp = self.getMostRecentTimestamp()
     def checkHasPlayedGame(self) -> bool:
         with open(self.filepath, "r") as file:
             lines = file.readlines()
@@ -138,24 +139,30 @@ class LogWatcher:
         [year, month, day] = date.split(".")
         [hour, minute, seconds] = time.split(".")
         [seconds, ms] = seconds.split(":")
-        return int(ms) + int(seconds)*100 + int(minute)*6000 + int(hour) * 3600000 + int(day) * 86400000 + int(month) * 31 + int(year) * 366
+        return int(ms) + int(seconds)*1000 + int(minute)*60000 + int(hour) * 3600000 + int(day) * 86400000 + int(month) * 2678400000 + int(year) * 980294400000
     def getMostRecentTimestamp(self) -> int:
         with open(self.filepath, "r") as file:
             recent_line = file.readlines()[-1]
             file.close()
             return self.getTimestampFromLine(recent_line)
     def getHasDied(self) -> bool:
+        timestamp_regex = re.compile("\[[0-9]{4}\.[0-9]{2}\.[0-9]{2}-[0-9]{2}\.[0-9]{2}\.[0-9]{2}:[0-9]{3}]")
         with open(self.filepath, "r") as file:
             lines = file.readlines()
             file.close()
             lines.reverse()
+            dl = False
             for line in lines:
-                if(self.getTimestampFromLine(line) < self.most_recent_timestamp):
+                if(timestamp_regex.match(line) and self.getTimestampFromLine(line) <= self.last_deathlink_timestamp):
                     break
-                if "Despawn_Multicast_Implementation" in line:
-                    player = line.split("Player '")[1].split("')")[0]
-                    if player == self.username:
-                        return True
+                if "Despawn_Multicast_Implementation" in line and self.username in line:
+                    dl = True
+                    break
+            for line in lines:
+                if timestamp_regex.match(line):
+                    self.last_deathlink_timestamp = self.getTimestampFromLine(line)
+                    break
+            return dl
         return False
     def getAwakeningsFromLog(self):
         with open(self.filepath, "r") as file:

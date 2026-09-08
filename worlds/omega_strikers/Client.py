@@ -63,6 +63,10 @@ class OSCommandProcessor(ClientCommandProcessor):
         for awakening in data["Awakenings"]:
             self.ctx.awakenings_found.append(f"Awakening - {awakening}")
         self.output("Sent!")
+    def _cmd_toggle_deathlink(self):
+        """Toggles deathlink on/off"""
+        self.ctx.toggle_dl = True
+        self.output("Toggled deathlink on/off!")
 
 
     
@@ -77,6 +81,10 @@ class OSContext(CommonContext):
     awakenings_found:list[str] = []
     received_characters:list[str] = []
     update_username = False
+    dl_enabled = False
+    dl_datastorage = None
+    sync_dl = False
+    toggle_dl = False
 
     def __init__(self, server_address: str | None = None, password: str | None = None) -> None:
         super(OSContext, self).__init__(server_address, password)
@@ -108,6 +116,7 @@ class OSContext(CommonContext):
             self.set_notify(f"{self.slot}OmegaStrikers-username")
             self.set_notify(f"{self.slot}OmegaStrikers-progress")
             self.set_notify(f"{self.slot}OmegaStrikers-awakenings")
+            self.set_notify(f"{self.slot}OmegaStrikers-deathlink")
             #Handle Slot Data
             for slot_data_key in list(args['slot_data'].keys()):
                 self.slot_data[slot_data_key] = args["slot_data"][slot_data_key]
@@ -118,16 +127,29 @@ class OSContext(CommonContext):
             if f"{self.slot}OmegaStrikers-progress" in args["keys"]:
                 if args["keys"][f"{self.slot}OmegaStrikers-progress"] != None:
                     self.progress_data = args["keys"][f"{self.slot}OmegaStrikers-progress"]
+                    print(self.progress_data)
             if f"{self.slot}OmegaStrikers-awakenings" in args["keys"]:
                 if args["keys"][f"{self.slot}OmegaStrikers-awakenings"] != None:
                     self.awakenings_found = args["keys"][f"{self.slot}OmegaStrikers-awakenings"]
+            if f"{self.slot}OmegaStrikers-deathlink" in args["keys"]:
+                if args["keys"][f"{self.slot}OmegaStrikers-deathlink"] != None:
+                    self.dl_datastorage = args["keys"][f"{self.slot}OmegaStrikers-deathlink"]
+                else:
+                    self.sync_dl = True
         if cmd in {"SetReply"}:
             if f"{self.slot}OmegaStrikers-username" == args["key"]:
                 self.slot_data["Username"] = args["value"]
+            if f"{self.slot}OmegaStrikers-deathlink" == args["key"]:
+                if args["value"] != None:
+                    self.dl_datastorage = args["value"]        
 
 async def game_watcher(ctx: OSContext):
     while not "Username" in ctx.slot_data and not ctx.exit_event.is_set():
         await asyncio.sleep(0.1)
+    if ctx.slot_data["Deathlink"] == 1:
+        await ctx.update_death_link(True)
+        ctx.dl_enabled = True
+    
     watcher = LogWatcher(ctx.slot_data["Username"])
 
     stat_to_check_name_map = {
@@ -140,6 +162,16 @@ async def game_watcher(ctx: OSContext):
         "Sets": "Win X Sets"
     }
     while not ctx.exit_event.is_set():
+        if ctx.dl_datastorage != None and ctx.dl_datastorage != ctx.dl_enabled:
+            print("Deathlink enabled!" if ctx.dl_datastorage else "Deathlink disabled!")
+            ctx.dl_enabled = ctx.dl_datastorage
+            await ctx.update_death_link(ctx.dl_enabled)
+        if ctx.toggle_dl:
+            await ctx.send_msgs([{"cmd":"Set", "key":f"{ctx.slot}OmegaStrikers-deathlink", "default":not ctx.dl_enabled, "want_replay":True, "operations":[{"operation":"replace", "value":not ctx.dl_enabled}]}])
+            ctx.toggle_dl = False
+        if ctx.sync_dl:
+            await ctx.send_msgs([{"cmd":"Set", "key":f"{ctx.slot}OmegaStrikers-deathlink", "default":ctx.slot_data["Deathlink"], "want_replay":True, "operations":[{"operation":"replace", "value":ctx.slot_data["Deathlink"]}]}])
+            ctx.sync_dl = False
         ctx.received_characters = []
         lp_received = 0
         for item in ctx.items_received:
@@ -172,7 +204,10 @@ async def game_watcher(ctx: OSContext):
                     wins += 1
             victory = wins >= ctx.slot_data["Striker Count"]
 
-        print(ctx.awakenings_found)
+        if watcher.getHasDied():
+            if ctx.dl_enabled == 1:
+                print("Sending deathlink!")
+                await ctx.send_death("was KO'd")
 
         if watcher.checkHasPlayedGame():
             data = watcher.getLastGameInfo()
