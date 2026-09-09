@@ -2,7 +2,6 @@ import math
 
 from BaseClasses import Item, ItemClassification
 from typing import Dict, TYPE_CHECKING, Tuple, List
-from .locations import generate_locations
 from .data import characters
 
 if TYPE_CHECKING:

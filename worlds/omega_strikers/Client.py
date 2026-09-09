@@ -51,12 +51,20 @@ class OSCommandProcessor(ClientCommandProcessor):
     def _cmd_progress(self):
         """Lists progress towards goal"""
         received_items = self.ctx.items_received
-        lp_count = 0
-        for item in received_items:
-            chr = self.ctx.item_id_map[item.item]
-            if chr == "LP":
-                lp_count += 1
-        self.output(f"{lp_count}/{self.ctx.slot_data['Required LP']}")
+        goal_mode = self.ctx.slot_data["Goal Mode"]
+        if (goal_mode == 1):
+            lp_count = 0
+            for item in received_items:
+                chr = self.ctx.item_id_map[item.item]
+                if chr == "LP":
+                    lp_count += 1
+            self.output(f"Received LP: {lp_count}/{self.ctx.slot_data['Required LP']}")
+        else:
+            output_result = "Characters left to win on:"
+            for c_name in self.ctx.slot_data["Characters"]:
+                if c_name not in self.ctx.progress_data.keys() or self.ctx.progress_data[c_name]["Wins"] < 1:
+                    output_result += f"\n - {c_name}"
+            self.output(output_result)
     def _cmd_send_awake_checks(self):
         """Sends awakening checks"""
         data = LogWatcher(self.ctx.slot_data["Username"]).getLastGameInfo()
@@ -246,9 +254,10 @@ async def game_watcher(ctx: OSContext):
                 sending.append(ctx.location_id_map[f"{awakening}"])
 
 
-        ctx.locations_checked = set(sending)
-        message = [{"cmd": 'LocationChecks', "locations": sending}]
-        await ctx.send_msgs(message)
+        if(ctx.locations_checked != set(sending)):
+            print(ctx.locations_checked, sending)
+            ctx.locations_checked = set(sending)
+            ctx.syncing = True
         if not ctx.finished_game and victory:
             await ctx.send_msgs([{"cmd": "StatusUpdate", "status": ClientStatus.CLIENT_GOAL}])
             ctx.finished_game = True

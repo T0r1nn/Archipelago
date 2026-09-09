@@ -1,13 +1,14 @@
 from .items import generate_items, get_default_item_map, item_table, OmegaStrikersItem, SlotItemData
-from .locations import OmegaStrikersLocation, generate_locations, get_default_location_map, check_location_amount
+from .locations import OmegaStrikersLocation, get_default_location_map, check_location_amount
 from .rules import set_rules
 from BaseClasses import Item, ItemClassification, Tutorial, MultiWorld, Region
 from .options import OSOptions
-from worlds.AutoWorld import World, WebWorld
+from worlds.AutoWorld import WebWorld
 from typing import Any
 from .regions import create_regions
 from worlds.LauncherComponents import launch_subprocess, components, Component, Type
-from .data import characters, in_rotation_trainings
+from .data import characters
+from rule_builder import cached_world
 
 def run_client(*args: Any):
     from .Client import main
@@ -29,7 +30,7 @@ class OmegaStrikersWeb(WebWorld):
         ["T0r1nn"]
     )]
 
-class OmegaStrikersWorld(World):
+class OmegaStrikersWorld(cached_world.World):
     """
     Placeholder description
     """
@@ -130,7 +131,8 @@ class OmegaStrikersWorld(World):
             "Goal Mode":self.options.game_mode.value,
             "AwakeningsEnabled":self.options.awakening_checks.value,
             "Score Mode":self.options.score_mode.value,
-            "Deathlink":self.options.death_link.value
+            "Deathlink":self.options.death_link.value,
+            "Characters": self.striker_pool
         }
 
         return slot_data
