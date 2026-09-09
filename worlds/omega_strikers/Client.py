@@ -254,10 +254,10 @@ async def game_watcher(ctx: OSContext):
                 sending.append(ctx.location_id_map[f"{awakening}"])
 
 
-        if(ctx.locations_checked != set(sending)):
-            print(ctx.locations_checked, sending)
+        if(True):
             ctx.locations_checked = set(sending)
-            ctx.syncing = True
+            message = [{"cmd": 'LocationChecks', "locations": sending}]
+            await ctx.send_msgs(message)
         if not ctx.finished_game and victory:
             await ctx.send_msgs([{"cmd": "StatusUpdate", "status": ClientStatus.CLIENT_GOAL}])
             ctx.finished_game = True

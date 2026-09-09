@@ -54,6 +54,6 @@ def check_location(location_name: "str"):
         max_id += 1
         locations.update({location_name: location_id})
         return {location_name: location_id}
-    return {}
+    return {location_name: locations[location_name]}
     
 locations : Dict[str, int] = {}
