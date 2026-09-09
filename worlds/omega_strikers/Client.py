@@ -213,9 +213,9 @@ async def game_watcher(ctx: OSContext):
             victory = wins >= ctx.slot_data["Striker Count"]
 
         if watcher.getHasDied():
-            if ctx.dl_enabled == 1:
+            if ctx.dl_enabled == 1 and ctx.slot != None:
                 print("Sending deathlink!")
-                await ctx.send_death("was KO'd")
+                await ctx.send_death(f"{ctx.player_names[ctx.slot]} was KO'd")
 
         if watcher.checkHasPlayedGame():
             data = watcher.getLastGameInfo()
